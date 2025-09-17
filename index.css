@@ -20,37 +20,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
   }
   body {
     background-color: var(--color-prison-black);
     background-image: radial-gradient(rgba(229,229,229,0.05) 1px, transparent 1px);
     background-size: 16px 16px;
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    min-height: 100vh;
-    width: 100%;
-  }
-
-  /* Fix for mobile blur/zoom issues */
-  * {
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-
-  /* Allow text selection for inputs and text content */
-  input, textarea, [contenteditable] {
-    -webkit-user-select: text;
-    user-select: text;
-  }
-
-  /* Prevent iOS zoom on inputs */
-  input, select, textarea {
-    font-size: 16px;
   }
 }
 

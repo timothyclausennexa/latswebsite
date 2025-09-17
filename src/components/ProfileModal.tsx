@@ -59,7 +59,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
                 {/* Profile Stats Section */}
                 <div className="mb-6 p-4 bg-ash-white/5 border-2 border-ash-white/10 rounded">
                     <h3 className="font-pixel-heading text-warning-orange mb-3">PLAYER STATS</h3>
-                    <div className="grid grid-cols-2 gap-4 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
                         <div>
                             <span className="text-ash-white/70">💰 Lats:</span>
                             <span className="text-warning-orange font-bold ml-2">{profile?.coins || 0}</span>

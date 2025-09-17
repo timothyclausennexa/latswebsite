@@ -49,7 +49,7 @@ export const DETAILED_ROADMAP_DATA: Milestone[] = [
     { marketCap: "$7M MCAP", description: "24-hour street-IRL stream in a major city." },
     { marketCap: "$10M MCAP", description: "First major charity donation to a cause chosen by the community." },
     { marketCap: "$15M MCAP", description: "Professional audit of the contract to build further trust." },
-    { marketCap: "$20M MCAP", description: "Lats gets a (temporary) tattoo chosen by the community." },
+    { marketCap: "$20M MCAP", description: "Go to Latvia and start a 24/7 stream house with cameras in all angles." },
     { marketCap: "$30M MCAP", description: "Community Tournament: Top 3 'Cell Break' players of the week win SOL." },
     { marketCap: "$50M MCAP", description: "First Tier-2 CEX listing push." },
     { marketCap: "$75M MCAP", description: "Fund a community-led marketing campaign with a $50k budget." },

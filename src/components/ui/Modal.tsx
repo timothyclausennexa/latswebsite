@@ -44,19 +44,19 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }
       }}
     >
       <div
-        className="relative mx-4 w-full max-w-lg border-4 border-alarm-red bg-prison-black p-6 shadow-pixel-xl shadow-alarm-red/30"
+        className="relative mx-2 sm:mx-4 w-full max-w-[95vw] sm:max-w-lg border-2 sm:border-4 border-alarm-red bg-prison-black p-4 sm:p-6 shadow-pixel-xl shadow-alarm-red/30 max-h-[90vh] overflow-y-auto rounded-lg"
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
       >
         <div className="flex items-start justify-between border-b-2 border-alarm-red/30 pb-3">
-          <h2 id="modal-title" className="font-pixel-heading text-xl text-alarm-red">
+          <h2 id="modal-title" className="font-pixel-heading text-lg sm:text-xl text-alarm-red">
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="text-ash-white/50 transition-colors hover:text-ash-white"
+            className="text-ash-white/50 transition-colors hover:text-ash-white min-w-[44px] min-h-[44px] flex items-center justify-center -mr-2 -mt-2"
             aria-label="Close"
           >
-            <Icon type="x-close" className="h-6 w-6" />
+            <Icon type="x-close" className="h-5 sm:h-6 w-5 sm:w-6" />
           </button>
         </div>
         <div className="mt-4">

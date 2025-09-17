@@ -130,7 +130,7 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
     if (!user) {
         return (
             <Modal title="Shop" isOpen={isOpen} onClose={onClose}>
-                <div className="bg-black border-2 border-warning-orange p-6 rounded-lg max-w-md w-full text-center">
+                <div className="text-center">
                     <h2 className="text-2xl font-pixel-heading text-warning-orange mb-4">
                         STREAMER SHOP
                     </h2>
@@ -147,9 +147,9 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
 
     return (
         <Modal title="Shop" isOpen={isOpen} onClose={onClose}>
-            <div className="bg-black border-2 border-warning-orange p-6 rounded-lg max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-2xl font-pixel-heading text-warning-orange">
+            <div className="flex flex-col">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2">
+                    <h2 className="text-xl sm:text-2xl font-pixel-heading text-warning-orange">
                         STREAMER SHOP
                     </h2>
                     <div className="text-right">
@@ -180,11 +180,11 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
                     </div>
                 ) : (
                     <div className="flex-1 overflow-y-auto">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                             {skins.map((skin) => (
                                 <div
                                     key={skin.id}
-                                    className={`border-2 rounded-lg p-4 transition-all ${getRarityColor(skin.rarity)} ${
+                                    className={`border-2 rounded-lg p-3 sm:p-4 transition-all ${getRarityColor(skin.rarity)} ${
                                         isEquipped(skin.id) ? 'ring-2 ring-warning-orange' : ''
                                     }`}
                                 >

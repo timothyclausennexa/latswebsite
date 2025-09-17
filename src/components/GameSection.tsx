@@ -5,6 +5,7 @@ import RealLeaderboard, { LeaderboardRef } from './RealLeaderboard';
 import DailyMissions from './DailyMissions';
 import FunctionalAuthModal from './FunctionalAuthModal';
 import FunctionalShop from './FunctionalShop';
+import MobileGameWarning from './MobileGameWarning';
 
 const GameSection: React.FC = () => {
     const [showAuthModal, setShowAuthModal] = useState(false);
@@ -47,13 +48,16 @@ const GameSection: React.FC = () => {
                 </div>
 
                 {/* Game takes full width at the top */}
-                <div className="mt-8 sm:mt-12">
+                <div className="mt-8 sm:mt-12 relative">
                     {isMobile ? (
-                        <MobileCellBreakGame
-                            onAuthClick={() => setShowAuthModal(true)}
-                            onOpenShop={() => setShowShop(true)}
-                            onGameEnd={handleGameEnd}
-                        />
+                        <>
+                            <MobileGameWarning />
+                            <MobileCellBreakGame
+                                onAuthClick={() => setShowAuthModal(true)}
+                                onOpenShop={() => setShowShop(true)}
+                                onGameEnd={handleGameEnd}
+                            />
+                        </>
                     ) : (
                         <CellBreakGameFixed
                             onAuthClick={() => setShowAuthModal(true)}

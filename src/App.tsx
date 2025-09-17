@@ -24,7 +24,6 @@ import FunctionalShop from './components/FunctionalShop';
 import ProfileModal from './components/ProfileModal';
 import AdminDashboard from './components/AdminDashboard';
 import { DeviceDetector, HapticFeedback } from './utils/touchUtils';
-import MobileRedirect from './components/MobileRedirect';
 
 const App: React.FC = () => {
     const [isEntryModalOpen, setIsEntryModalOpen] = useState(true);
@@ -86,7 +85,6 @@ const App: React.FC = () => {
 
     return (
         <AuthProvider>
-            <MobileRedirect />
             <div
                 className={`bg-prison-dark text-ash-white touch-smooth ${isModernIPhone ? 'safe-area-all' : ''} ${isTouch ? 'touch-optimized ios-optimized' : ''}`}
                 onClick={(e) => {

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Redirect Test - Cell Break</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #000;
+            color: #0ff;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+        }
+        .test-section {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #0ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #0ff;
+        }
+        .pass {
+            border-left-color: #0f0;
+            background: rgba(0, 255, 0, 0.1);
+        }
+        .fail {
+            border-left-color: #f00;
+            background: rgba(255, 0, 0, 0.1);
+        }
+        .warning {
+            border-left-color: #ff0;
+            background: rgba(255, 255, 0, 0.1);
+        }
+        button {
+            background: #0ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        #live-site {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #0ff;
+            margin: 20px 0;
+        }
+        .device-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .info-item {
+            padding: 5px;
+            background: rgba(0, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile Redirect Test Suite</h1>
+
+        <div class="test-section">
+            <h2>Device Detection</h2>
+            <div class="device-info" id="device-info"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <div id="test-results"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Manual Tests</h2>
+            <button onclick="testOrientation()">Test Orientation</button>
+            <button onclick="testTouch()">Test Touch</button>
+            <button onclick="simulateMobile()">Simulate Mobile</button>
+            <button onclick="simulateDesktop()">Simulate Desktop</button>
+            <button onclick="openSite()">Open Live Site</button>
+        </div>
+
+        <div class="test-section">
+            <h2>Live Site Test</h2>
+            <p>The site should show a "Desktop Only" message on mobile devices:</p>
+            <iframe id="live-site" src="/"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Device detection tests
+        function runDeviceTests() {
+            const tests = [];
+            const info = [];
+
+            // User Agent test
+            const userAgent = navigator.userAgent;
+            const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            tests.push({
+                name: 'User Agent Detection',
+                result: isMobileUA ? 'Mobile detected' : 'Desktop detected',
+                status: isMobileUA ? 'pass' : 'warning'
+            });
+
+            // Touch support test
+            const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            tests.push({
+                name: 'Touch Support',
+                result: hasTouch ? 'Touch enabled' : 'Touch disabled',
+                status: hasTouch ? 'pass' : 'warning'
+            });
+
+            // Screen size test
+            const screenWidth = window.innerWidth;
+            const isMobileScreen = screenWidth < 768;
+            tests.push({
+                name: 'Screen Width',
+                result: `${screenWidth}px (${isMobileScreen ? 'Mobile' : 'Desktop'})`,
+                status: isMobileScreen ? 'pass' : 'warning'
+            });
+
+            // Combined mobile detection
+            const isMobile = isMobileUA || (hasTouch && isMobileScreen);
+            tests.push({
+                name: 'Overall Mobile Detection',
+                result: isMobile ? 'MOBILE DEVICE - Redirect should show' : 'DESKTOP DEVICE - Site should work',
+                status: isMobile ? 'pass' : 'fail'
+            });
+
+            // Device info
+            info.push({ label: 'User Agent', value: userAgent.substring(0, 50) + '...' });
+            info.push({ label: 'Screen Width', value: window.innerWidth + 'px' });
+            info.push({ label: 'Screen Height', value: window.innerHeight + 'px' });
+            info.push({ label: 'Device Pixel Ratio', value: window.devicePixelRatio });
+            info.push({ label: 'Touch Points', value: navigator.maxTouchPoints });
+            info.push({ label: 'Platform', value: navigator.platform });
+            info.push({ label: 'Orientation', value: window.screen.orientation?.type || 'unknown' });
+            info.push({ label: 'Connection', value: navigator.connection?.effectiveType || 'unknown' });
+
+            // Display results
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = tests.map(test =>
+                `<div class="test-result ${test.status}">
+                    <strong>${test.name}:</strong> ${test.result}
+                </div>`
+            ).join('');
+
+            const infoDiv = document.getElementById('device-info');
+            infoDiv.innerHTML = info.map(item =>
+                `<div class="info-item">
+                    <strong>${item.label}:</strong> ${item.value}
+                </div>`
+            ).join('');
+        }
+
+        // Test functions
+        function testOrientation() {
+            if (window.screen.orientation) {
+                alert(`Current orientation: ${window.screen.orientation.type}\nAngle: ${window.screen.orientation.angle}°`);
+            } else {
+                alert('Orientation API not supported');
+            }
+        }
+
+        function testTouch() {
+            let touches = 0;
+            const handler = (e) => {
+                touches++;
+                alert(`Touch detected! Total touches: ${touches}\nTouch points: ${e.touches.length}`);
+                document.removeEventListener('touchstart', handler);
+            };
+            document.addEventListener('touchstart', handler);
+            alert('Touch the screen to test touch detection...');
+            setTimeout(() => {
+                document.removeEventListener('touchstart', handler);
+                if (touches === 0) alert('No touches detected after 5 seconds');
+            }, 5000);
+        }
+
+        function simulateMobile() {
+            // Override detection for testing
+            const iframe = document.getElementById('live-site');
+            iframe.style.width = '375px';
+            iframe.style.height = '667px';
+            iframe.src = iframe.src; // Reload
+            alert('Simulating iPhone viewport (375x667)');
+            setTimeout(runDeviceTests, 100);
+        }
+
+        function simulateDesktop() {
+            const iframe = document.getElementById('live-site');
+            iframe.style.width = '100%';
+            iframe.style.height = '600px';
+            iframe.src = iframe.src; // Reload
+            alert('Simulating desktop viewport');
+            setTimeout(runDeviceTests, 100);
+        }
+
+        function openSite() {
+            window.open('/', '_blank');
+        }
+
+        // Run tests on load
+        window.addEventListener('load', () => {
+            runDeviceTests();
+
+            // Re-run on orientation change
+            window.addEventListener('orientationchange', runDeviceTests);
+            window.addEventListener('resize', runDeviceTests);
+        });
+
+        // Log any errors from iframe
+        window.addEventListener('message', (e) => {
+            console.log('Message from iframe:', e.data);
+        });
+    </script>
+</body>
+</html>

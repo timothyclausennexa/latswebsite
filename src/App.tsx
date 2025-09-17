@@ -23,7 +23,7 @@ import AuthModal from './components/AuthModal';
 import FunctionalShop from './components/FunctionalShop';
 import ProfileModal from './components/ProfileModal';
 import AdminDashboard from './components/AdminDashboard';
-import { DeviceDetector, HapticFeedback } from './utils/touchUtils';
+import { DeviceDetector } from './utils/touchUtils';
 
 const App: React.FC = () => {
     const [isEntryModalOpen, setIsEntryModalOpen] = useState(true);
@@ -33,56 +33,12 @@ const App: React.FC = () => {
     const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
     const pixelDustRef = useRef<PixelDustHandle>(null);
 
-    // Touch device detection and optimization
-    const [isTouch, setIsTouch] = useState(false);
-    const [isIOS, setIsIOS] = useState(false);
-    const [isModernIPhone, setIsModernIPhone] = useState(false);
-
-    // Initialize touch device detection and optimizations
+    // Initialize entry modal
     useEffect(() => {
         if (sessionStorage.getItem('siteEntered')) {
             setIsEntryModalOpen(false);
         }
 
-        // Detect device capabilities
-        setIsTouch(DeviceDetector.isTouchDevice());
-        setIsIOS(DeviceDetector.isIOS());
-        setIsModernIPhone(DeviceDetector.isModernIPhone());
-
-        // Add device-specific CSS classes to body
-        const body = document.body;
-        if (DeviceDetector.isTouchDevice()) {
-            body.classList.add('touch-device');
-        }
-        if (DeviceDetector.isIOS()) {
-            body.classList.add('ios-device');
-        }
-        if (DeviceDetector.isModernIPhone()) {
-            body.classList.add('modern-iphone');
-        }
-
-        // Prevent bounce scrolling on iOS
-        if (DeviceDetector.isIOS()) {
-            body.style.overscrollBehavior = 'none';
-        }
-
-        // Set viewport meta tag for optimal mobile experience
-        let viewport = document.querySelector('meta[name="viewport"]') as HTMLMetaElement;
-        if (!viewport) {
-            viewport = document.createElement('meta');
-            viewport.name = 'viewport';
-            document.head.appendChild(viewport);
-        }
-
-        if (DeviceDetector.isModernIPhone()) {
-            viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover';
-        } else {
-            viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';
-        }
-
-        return () => {
-            body.classList.remove('touch-device', 'ios-device', 'modern-iphone');
-        };
     }, []);
 
     const handleCloseEntryModal = () => {

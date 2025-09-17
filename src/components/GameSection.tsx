@@ -37,6 +37,13 @@ const GameSection: React.FC = () => {
                     <p className="mx-auto mt-2 max-w-2xl font-body text-sm text-ash-white/70 sm:text-base lg:text-lg leading-relaxed">
                         He's not the only one trapped. Play our mini-game to climb the leaderboard, complete missions, and earn Escape Points (EP) for cosmetic upgrades.
                     </p>
+                    {isMobile && (
+                        <div className="mx-auto mt-4 max-w-md rounded-lg border border-warning-orange/30 bg-warning-orange/10 p-3">
+                            <p className="font-body text-xs text-warning-orange font-medium">
+                                📱 For the best gaming experience, visit this site on desktop/web browser
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 {/* Game takes full width at the top */}

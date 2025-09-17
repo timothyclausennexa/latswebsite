@@ -23,7 +23,8 @@ import AuthModal from './components/AuthModal';
 import FunctionalShop from './components/FunctionalShop';
 import ProfileModal from './components/ProfileModal';
 import AdminDashboard from './components/AdminDashboard';
-import { DeviceDetector } from './utils/touchUtils';
+import { DeviceDetector, HapticFeedback } from './utils/touchUtils';
+import MobileRedirect from './components/MobileRedirect';
 
 const App: React.FC = () => {
     const [isEntryModalOpen, setIsEntryModalOpen] = useState(true);
@@ -43,12 +44,31 @@ const App: React.FC = () => {
             setIsEntryModalOpen(false);
         } else if (isTouch) {
             // Auto-close entry modal on mobile after 2 seconds
-            setTimeout(() => {
+            const timer = setTimeout(() => {
                 setIsEntryModalOpen(false);
                 sessionStorage.setItem('siteEntered', 'true');
             }, 2000);
+
+            // Cleanup timer on unmount
+            return () => clearTimeout(timer);
         }
     }, [isTouch]);
+
+    // Ensure modal doesn't block mobile interactions
+    useEffect(() => {
+        if (isTouch && isEntryModalOpen) {
+            // Add a fallback to close modal if it's stuck open on mobile
+            const emergencyTimer = setTimeout(() => {
+                if (isEntryModalOpen) {
+                    console.log('Force closing entry modal on mobile');
+                    setIsEntryModalOpen(false);
+                    sessionStorage.setItem('siteEntered', 'true');
+                }
+            }, 3000);
+
+            return () => clearTimeout(emergencyTimer);
+        }
+    }, [isTouch, isEntryModalOpen]);
 
     const handleCloseEntryModal = () => {
         sessionStorage.setItem('siteEntered', 'true');
@@ -66,6 +86,7 @@ const App: React.FC = () => {
 
     return (
         <AuthProvider>
+            <MobileRedirect />
             <div
                 className={`bg-prison-dark text-ash-white touch-smooth ${isModernIPhone ? 'safe-area-all' : ''} ${isTouch ? 'touch-optimized ios-optimized' : ''}`}
                 onClick={(e) => {

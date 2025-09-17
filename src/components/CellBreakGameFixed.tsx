@@ -2425,7 +2425,7 @@ function CellBreakGameFixed({ onAuthClick, onOpenShop, onGameEnd }: GameProps) {
         <div className="relative aspect-video w-full border-2 border-warning-orange bg-black">
             <canvas
                 ref={canvasRef}
-                className="w-full h-full touch-none"
+                className="w-full h-full touch-manipulation"
                 style={{ imageRendering: 'pixelated' }}
             />
 

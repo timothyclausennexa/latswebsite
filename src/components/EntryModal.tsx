@@ -14,6 +14,15 @@ const EntryModal: React.FC<EntryModalProps> = ({ isOpen, onClose }) => {
     const [isCopied, setIsCopied] = useState(false);
     const isLive = !!CONFIG.TOKEN_CONTRACT_ADDRESS;
 
+    // Handle touch events for mobile dismissal
+    const handleOverlayTouch = (e: React.TouchEvent) => {
+        // Allow closing on touch of overlay
+        if (e.target === e.currentTarget) {
+            e.preventDefault();
+            onClose();
+        }
+    };
+
     const handleCopy = () => {
         if (CONFIG.TOKEN_CONTRACT_ADDRESS) {
             navigator.clipboard.writeText(CONFIG.TOKEN_CONTRACT_ADDRESS);
@@ -27,8 +36,17 @@ const EntryModal: React.FC<EntryModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" onClick={onClose}>
-            <div className="bg-black border-4 border-alarm-red p-6 sm:p-8 rounded-lg max-w-lg w-full relative" onClick={(e) => e.stopPropagation()}>
+        <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={onClose}
+            onTouchEnd={handleOverlayTouch}
+            style={{ touchAction: 'none', pointerEvents: isOpen ? 'auto' : 'none' }}
+        >
+            <div
+                className="bg-black border-4 border-alarm-red p-6 sm:p-8 rounded-lg max-w-lg w-full relative"
+                onClick={(e) => e.stopPropagation()}
+                style={{ touchAction: 'auto' }}
+            >
                 <button
                     onClick={onClose}
                     className="absolute top-2 right-2 text-ash-white/70 hover:text-ash-white p-2"

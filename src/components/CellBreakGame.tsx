@@ -454,7 +454,7 @@ const CellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () => void;
 
 
     return (
-        <div className="relative aspect-video w-full border-2 border-ash-white/20 bg-prison-black shadow-pixel-lg touch-none select-none">
+        <div className="relative aspect-video w-full border-2 border-ash-white/20 bg-prison-black shadow-pixel-lg touch-manipulation select-none">
             <canvas ref={canvasRef} className="h-full w-full"></canvas>
             
             {uiState === 'idle' && (

@@ -252,7 +252,12 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
 
   // Touch Handling
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    e.preventDefault();
+    // Only prevent default if the touch is on the canvas
+    if (e.target === canvasRef.current) {
+      e.preventDefault();
+    } else {
+      return; // Let other touches pass through
+    }
 
     for (let i = 0; i < e.changedTouches.length; i++) {
       const touch = e.changedTouches[i];
@@ -315,7 +320,12 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
   }, [uiState, triggerHaptic]);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
-    e.preventDefault();
+    // Only prevent default if the touch is on the canvas
+    if (e.target === canvasRef.current) {
+      e.preventDefault();
+    } else {
+      return; // Let other touches pass through
+    }
 
     for (let i = 0; i < e.changedTouches.length; i++) {
       const touch = e.changedTouches[i];
@@ -371,7 +381,12 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
   }, [touches, isFullscreen, uiState, enterFullscreen, exitFullscreen]);
 
   const handleTouchEnd = useCallback((e: TouchEvent) => {
-    e.preventDefault();
+    // Only prevent default if the touch is on the canvas
+    if (e.target === canvasRef.current) {
+      e.preventDefault();
+    } else {
+      return; // Let other touches pass through
+    }
 
     for (let i = 0; i < e.changedTouches.length; i++) {
       const touch = e.changedTouches[i];
@@ -1067,13 +1082,6 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
     // Detect haptic support
     setHapticSupported('vibrate' in navigator || 'hapticFeedback' in navigator);
 
-    // Prevent default touch behaviors
-    const preventDefaults = (e: Event) => e.preventDefault();
-
-    document.addEventListener('touchstart', preventDefaults, { passive: false });
-    document.addEventListener('touchmove', preventDefaults, { passive: false });
-    document.addEventListener('touchend', preventDefaults, { passive: false });
-
     // Orientation change handling
     const handleOrientationChange = () => {
       const isLandscape = window.innerHeight < window.innerWidth;
@@ -1123,9 +1131,6 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
 
     return () => {
-      document.removeEventListener('touchstart', preventDefaults);
-      document.removeEventListener('touchmove', preventDefaults);
-      document.removeEventListener('touchend', preventDefaults);
       window.removeEventListener('orientationchange', handleOrientationChange);
       window.removeEventListener('resize', handleOrientationChange);
       document.removeEventListener('visibilitychange', handleVisibilityChange);
@@ -1179,8 +1184,8 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
   // Mobile-specific CSS classes based on state
   const containerClasses = `
     relative w-full border-2 border-ash-white/20 bg-prison-black shadow-pixel-lg
-    touch-none select-none overflow-hidden
-    ${isFullscreen ? 'fixed inset-0 z-50 border-0' : 'max-w-full'}
+    select-none overflow-hidden
+    ${isFullscreen ? 'fixed inset-0 z-50 border-0 touch-manipulation' : 'max-w-full'}
     ${orientation === 'portrait' ? 'aspect-[9/16]' : 'aspect-[16/10]'}
   `;
 
@@ -1188,7 +1193,8 @@ const MobileCellBreakGame: React.FC<{ onAuthClick: () => void; onOpenShop: () =>
     <div ref={gameContainerRef} className={containerClasses}>
       <canvas
         ref={canvasRef}
-        className={`w-full h-full ${isFullscreen ? 'object-contain' : ''}`}
+        className={`w-full h-full touch-manipulation ${isFullscreen ? 'object-contain' : ''}`}
+        style={{ touchAction: uiState === 'playing' ? 'none' : 'auto' }}
       />
 
       {uiState === 'idle' && (

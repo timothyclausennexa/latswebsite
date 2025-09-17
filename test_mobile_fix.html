@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Touch Test - LATS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0D0D0D;
+            color: #E5E5E5;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #FF8A00;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .test-section {
+            background: #1A1A1A;
+            border: 2px solid #FF8A00;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .test-button {
+            width: 100%;
+            padding: 15px;
+            background: #FF8A00;
+            color: #0D0D0D;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .test-button:active {
+            background: #CC6E00;
+            transform: scale(0.98);
+        }
+
+        .scroll-test {
+            height: 200px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid #FF8A00;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .scroll-content {
+            height: 500px;
+            background: linear-gradient(180deg, #FF8A00 0%, #9E3039 100%);
+        }
+
+        #touch-log {
+            background: #000;
+            border: 1px solid #22FF22;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .status.success {
+            background: #22FF2240;
+            border: 1px solid #22FF22;
+        }
+
+        .status.error {
+            background: #FF222240;
+            border: 1px solid #FF2222;
+        }
+
+        .game-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #000;
+            border: 2px solid #FF8A00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile Touch Test</h1>
+
+        <div class="test-section">
+            <h2>Touch Test</h2>
+            <button class="test-button" id="touch-test">TAP ME</button>
+            <div id="touch-status" class="status"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Scroll Test</h2>
+            <div class="scroll-test">
+                <div class="scroll-content">
+                    <p>Scroll me! This content is scrollable.</p>
+                    <p style="position: absolute; bottom: 10px;">Bottom of scroll area</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Game Area Test</h2>
+            <div class="game-placeholder" id="game-area">
+                <span>Game would be here</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Page Scroll Test</h2>
+            <p>The entire page should be scrollable. Try scrolling down.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Touch Event Log</h2>
+            <div id="touch-log"></div>
+        </div>
+
+        <!-- Add more content to make page scrollable -->
+        <div class="test-section">
+            <h2>Additional Content</h2>
+            <p>This section ensures the page is scrollable on mobile devices.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>More Content</h2>
+            <p>Keep scrolling to test page scroll functionality.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Bottom Section</h2>
+            <p>You've reached the bottom! Scroll works!</p>
+        </div>
+    </div>
+
+    <script>
+        const log = (message) => {
+            const logEl = document.getElementById('touch-log');
+            const time = new Date().toLocaleTimeString();
+            logEl.innerHTML = `[${time}] ${message}<br>` + logEl.innerHTML;
+            if (logEl.children.length > 10) {
+                logEl.removeChild(logEl.lastChild);
+            }
+        };
+
+        const statusEl = document.getElementById('touch-status');
+        const buttonEl = document.getElementById('touch-test');
+        const gameArea = document.getElementById('game-area');
+
+        // Touch button test
+        buttonEl.addEventListener('touchstart', (e) => {
+            log('Button touch started');
+            statusEl.textContent = 'Touch detected!';
+            statusEl.className = 'status success';
+        });
+
+        buttonEl.addEventListener('click', () => {
+            log('Button clicked');
+        });
+
+        // Game area touch test
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        gameArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            log(`Game area touched at ${Math.round(touchStartX)}, ${Math.round(touchStartY)}`);
+            e.preventDefault(); // Prevent scrolling only in game area
+        });
+
+        gameArea.addEventListener('touchmove', (e) => {
+            const deltaX = e.touches[0].clientX - touchStartX;
+            const deltaY = e.touches[0].clientY - touchStartY;
+            gameArea.textContent = `Swiped: ${Math.round(deltaX)}, ${Math.round(deltaY)}`;
+            e.preventDefault(); // Prevent scrolling only in game area
+        });
+
+        gameArea.addEventListener('touchend', () => {
+            log('Game area touch ended');
+            gameArea.textContent = 'Game would be here';
+        });
+
+        // Page scroll detection
+        let lastScrollY = 0;
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if (scrollY !== lastScrollY) {
+                log(`Page scrolled to ${Math.round(scrollY)}`);
+                lastScrollY = scrollY;
+            }
+        });
+
+        // Check for touch support
+        if ('ontouchstart' in window) {
+            log('Touch support detected ✓');
+        } else {
+            log('No touch support detected');
+        }
+
+        // Test for iOS
+        if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+            log('iOS device detected');
+        }
+
+        // Check viewport
+        log(`Viewport: ${window.innerWidth}x${window.innerHeight}`);
+    </script>
+</body>
+</html>

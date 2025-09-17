@@ -316,6 +316,28 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
 
                         {/* Mobile Elements */}
                         <div className="flex items-center gap-2 sm:hidden">
+                            {/* Mobile User/Login Button */}
+                            {profile ? (
+                                <button
+                                    onClick={onProfileClick}
+                                    className="flex items-center gap-1 px-2 py-1 bg-black/50 border border-warning-orange/30 rounded text-xs"
+                                >
+                                    <Icon type="user" className="h-3 w-3 text-warning-orange" />
+                                    <span className="text-ash-white max-w-[60px] truncate">
+                                        {profile.username}
+                                    </span>
+                                </button>
+                            ) : (
+                                <Button
+                                    variant="primary"
+                                    size="sm"
+                                    onClick={onAuthClick}
+                                    className="px-3 py-2 text-xs"
+                                >
+                                    Login
+                                </Button>
+                            )}
+
                             {/* Mobile Buy Button - Always visible */}
                             <Button
                                 variant="secondary"

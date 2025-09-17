@@ -10,20 +10,12 @@ const Community: React.FC = () => {
                     JOIN THE CELLBLOCK
                 </h2>
                 <p className="mx-auto mt-2 max-w-2xl font-body text-sm text-ash-white/70 sm:text-base lg:text-lg leading-relaxed">
-                    The experiment is live. The timer is ticking. Memes, chaos, and financial ruin await in our Telegram and on X.
+                    The experiment is live. The timer is ticking. Memes, chaos, and financial ruin await on X.
                 </p>
                 <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <Button
                         size="lg"
                         variant='primary'
-                        onClick={() => window.open(CONFIG.TELEGRAM_LINK, '_blank', 'noopener,noreferrer')}
-                        className="w-full sm:w-auto min-w-[200px]"
-                    >
-                        Enter Telegram
-                    </Button>
-                    <Button
-                        size="lg"
-                        variant='secondary'
                         onClick={() => window.open(CONFIG.X_LINK, '_blank', 'noopener,noreferrer')}
                         className="w-full sm:w-auto min-w-[200px]"
                     >

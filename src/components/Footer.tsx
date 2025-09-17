@@ -12,15 +12,6 @@ const Footer: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-4 sm:gap-6">
                         <a
-                            href={CONFIG.TELEGRAM_LINK}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Telegram"
-                            className="text-ash-white/70 transition-all active:scale-95 hover:scale-110 hover:text-ash-white touch-manipulation p-2 min-h-[44px] min-w-[44px] flex items-center justify-center"
-                        >
-                            <Icon type="telegram" className="h-6 w-6 sm:h-7 sm:w-7" />
-                        </a>
-                        <a
                             href={CONFIG.X_LINK}
                             target="_blank"
                             rel="noopener noreferrer"

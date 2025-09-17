@@ -33,6 +33,10 @@ const App: React.FC = () => {
     const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
     const pixelDustRef = useRef<PixelDustHandle>(null);
 
+    // Check if touch device
+    const isTouch = DeviceDetector.isTouchDevice();
+    const isModernIPhone = DeviceDetector.isModernIPhone();
+
     // Initialize entry modal
     useEffect(() => {
         if (sessionStorage.getItem('siteEntered')) {

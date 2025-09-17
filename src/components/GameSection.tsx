@@ -47,25 +47,33 @@ const GameSection: React.FC = () => {
                     )}
                 </div>
 
-                {/* Game takes full width at the top */}
-                <div className="mt-8 sm:mt-12 relative">
-                    {isMobile ? (
-                        <>
-                            <MobileGameWarning />
-                            <MobileCellBreakGame
-                                onAuthClick={() => setShowAuthModal(true)}
-                                onOpenShop={() => setShowShop(true)}
-                                onGameEnd={handleGameEnd}
-                            />
-                        </>
-                    ) : (
+                {/* Game for desktop only */}
+                {isMobile ? (
+                    <div className="mt-8 sm:mt-12 relative">
+                        <div className="bg-black/50 border-2 border-warning-orange/50 rounded-lg p-8 text-center">
+                            <h3 className="text-xl font-pixel-heading text-warning-orange mb-4">
+                                🎮 DESKTOP ONLY GAME
+                            </h3>
+                            <p className="text-ash-white/80 mb-6">
+                                Cell Break requires keyboard and mouse controls.
+                                Please visit on a desktop computer to play.
+                            </p>
+                            <div className="text-sm text-ash-white/60">
+                                <p>✓ Full keyboard controls</p>
+                                <p>✓ Precise mouse aim</p>
+                                <p>✓ Better performance</p>
+                            </div>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="mt-8 sm:mt-12 relative">
                         <CellBreakGameFixed
                             onAuthClick={() => setShowAuthModal(true)}
                             onOpenShop={() => setShowShop(true)}
                             onGameEnd={handleGameEnd}
                         />
-                    )}
-                </div>
+                    </div>
+                )}
 
                 {/* Leaderboard and Missions below in a grid */}
                 <div className="mt-8 sm:mt-12 grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">

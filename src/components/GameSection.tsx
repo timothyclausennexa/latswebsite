@@ -29,7 +29,7 @@ const GameSection: React.FC = () => {
     };
     return (
         <section id="cell-break" className="relative border-y-4 border-prison-black bg-prison-dark py-12 sm:py-16 lg:py-24">
-            <div className="absolute inset-0 bg-[url('/img/grid-bg.png')] bg-repeat opacity-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black opacity-50" />
             <div className="container relative mx-auto px-4 sm:px-6">
                 <div className="text-center">
                      <h2 className="font-pixel-heading text-xl uppercase text-ash-white sm:text-2xl lg:text-3xl xl:text-4xl leading-tight">

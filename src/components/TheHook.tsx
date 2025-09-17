@@ -10,7 +10,6 @@ const TheHook: React.FC = () => {
     const CONFIG = useConfig();
     return (
         <section className="relative overflow-hidden border-b-4 border-black bg-gray-900 py-8 sm:py-12 md:py-16">
-             <div className="absolute inset-0 bg-[url('/img/stream-bg.png')] bg-cover bg-center opacity-10" />
              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent" />
             <div className="container relative mx-auto px-3 sm:px-4">
                 <div className="text-center">

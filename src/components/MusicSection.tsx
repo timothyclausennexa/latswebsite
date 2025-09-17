@@ -11,7 +11,7 @@ const MusicSection: React.FC = () => {
                     COMMUNITY JUKEBOX
                 </h2>
                 <p className="mx-auto mt-2 max-w-2xl text-center font-body text-sm text-ash-white/70 sm:text-base lg:text-lg leading-relaxed">
-                    Lats is forced to listen to your music. Submit songs to the playlist and vote on the daily track that will be put on repeat.
+                    SLURP is forced to listen to your music. Submit songs to the playlist and vote on the daily track that will be put on repeat.
                 </p>
                 <div className="mx-auto mt-8 sm:mt-12 grid max-w-6xl grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-5">
                     <div className="lg:col-span-3">

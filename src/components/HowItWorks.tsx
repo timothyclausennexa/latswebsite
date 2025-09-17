@@ -39,7 +39,7 @@ const HowItWorks: React.FC = () => {
                     <InfoCard
                         icon={<div className="font-pixel-timer text-2xl sm:text-3xl lg:text-4xl text-green-400 mx-auto animate-pulse">BUY 📈</div>}
                         title="SMART MONEY MOVES"
-                        description="Each $LATS purchase adds 30 mins to stream. More stream time = more viral clips = more buyers = YOUR GAINS MULTIPLY!"
+                        description="Each $SLURP purchase adds 30 mins to stream. More stream time = more viral clips = more buyers = YOUR GAINS MULTIPLY!"
                     />
                     <InfoCard
                         icon={<div className="font-pixel-timer text-2xl sm:text-3xl lg:text-4xl text-red-400 mx-auto">💸 SELL</div>}

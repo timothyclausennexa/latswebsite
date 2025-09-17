@@ -193,7 +193,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                     <div className="container mx-auto flex items-center justify-between gap-2 px-4 py-3 sm:gap-4">
                         {/* Logo */}
                         <div className="font-pixel-heading text-lg text-alarm-red sm:text-xl md:text-2xl">
-                            Lats
+                            SLURP
                         </div>
 
                         {/* Desktop Nav Links (center) */}
@@ -216,7 +216,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                                     {/* User Coins - Hidden on smaller screens, shown on md+ */}
                                     <div className="hidden items-center gap-2 rounded-md border-2 border-ash-white/20 bg-black/50 p-2 font-mono text-xs text-ash-white/70 md:flex">
                                         <Icon type="coin-stack" className="h-4 w-4 text-yellow-400" />
-                                        <span className="font-pixel-heading text-sm text-yellow-400">{profile.coins || 0} LATS</span>
+                                        <span className="font-pixel-heading text-sm text-yellow-400">{profile.coins || 0} SLURP</span>
                                     </div>
 
                                     {/* User Profile - Compact on small, full on md+ */}
@@ -309,7 +309,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                                 tooltip="Link will be updated live on stream"
                                 className="shadow-warning-orange/30"
                             >
-                                <span className="hidden sm:inline">BUY $LATS</span>
+                                <span className="hidden sm:inline">BUY $SLURP</span>
                                 <span className="sm:hidden">BUY</span>
                             </Button>
                         </div>
@@ -404,7 +404,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <Icon type="coin-stack" className="h-5 w-5 text-yellow-400" />
-                                            <span className="font-pixel-heading text-base text-yellow-400">{profile.coins || 0} LATS</span>
+                                            <span className="font-pixel-heading text-base text-yellow-400">{profile.coins || 0} SLURP</span>
                                         </div>
                                     </div>
 

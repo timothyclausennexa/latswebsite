@@ -54,12 +54,12 @@ const StreamHighlight: React.FC = () => {
                         {/* Buy button if pump link exists */}
                         {hasPumpLink && (
                             <div className="mt-6">
-                                <p className="text-ash-white/60 mb-3 text-sm">Or get $LATS now:</p>
+                                <p className="text-ash-white/60 mb-3 text-sm">Or get $SLURP now:</p>
                                 <button
                                     onClick={handleBuyClick}
                                     className="bg-green-500 hover:bg-green-600 text-black px-8 py-3 rounded font-pixel-heading text-sm uppercase transition-all hover:scale-105 shadow-lg"
                                 >
-                                    🚀 BUY $LATS ON PUMP.FUN
+                                    🚀 BUY $SLURP ON PUMP.FUN
                                 </button>
                             </div>
                         )}
@@ -91,7 +91,7 @@ const StreamHighlight: React.FC = () => {
                                     onClick={handleBuyClick}
                                     className="bg-green-500 hover:bg-green-600 text-black px-8 py-4 rounded-lg font-pixel-heading text-base uppercase transition-all hover:scale-105 shadow-lg"
                                 >
-                                    🚀 BUY $LATS ON PUMP.FUN
+                                    🚀 BUY $SLURP ON PUMP.FUN
                                 </button>
                             </>
                         )}

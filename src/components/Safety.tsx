@@ -11,7 +11,7 @@ const Safety: React.FC = () => {
                     </h2>
                     <div className="mt-3 sm:mt-4 border-t-2 border-alarm-red/30 pt-3 sm:pt-4">
                         <p className="font-body text-xs sm:text-sm lg:text-base text-ash-white/80 leading-relaxed">
-                            For legal reasons, we cannot promise financial returns. Lats is a high-risk memecoin and a social experiment. Think of participating like buying a ticket and candy at the movies; you're paying for the entertainment and to be part of an insane story. However, unlike a movie ticket, this one comes with the thrilling possibility of a life-changing payout. It's high-risk, high-reward entertainment. This is not financial advice. Participate responsibly.
+                            For legal reasons, we cannot promise financial returns. SLURP is a high-risk memecoin and a social experiment. Think of participating like buying a ticket and candy at the movies; you're paying for the entertainment and to be part of an insane story. However, unlike a movie ticket, this one comes with the thrilling possibility of a life-changing payout. It's high-risk, high-reward entertainment. This is not financial advice. Participate responsibly.
                         </p>
                     </div>
                 </div>

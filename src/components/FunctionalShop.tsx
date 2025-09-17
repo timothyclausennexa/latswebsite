@@ -154,10 +154,10 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
                     </h2>
                     <div className="text-right">
                         <p className="text-yellow-400 font-bold">
-                            💰 {profile?.coins || 0} LATS
+                            💰 {profile?.coins || 0} SLURP
                         </p>
                         <p className="text-xs text-ash-white/60">
-                            Earn lats by playing!
+                            Earn SLURP by playing!
                         </p>
                     </div>
                 </div>
@@ -229,7 +229,7 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
                                         ) : (
                                             <div className="space-y-2">
                                                 <p className="text-yellow-400 font-bold">
-                                                    💰 {skin.price} lats
+                                                    💰 {skin.price} SLURP
                                                 </p>
                                                 <Button
                                                     variant="primary"
@@ -242,7 +242,7 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
                                                         ? 'BUYING...'
                                                         : canAfford(skin.price)
                                                         ? 'BUY'
-                                                        : 'NOT ENOUGH LATS'
+                                                        : 'NOT ENOUGH SLURP'
                                                     }
                                                 </Button>
                                             </div>
@@ -256,7 +256,7 @@ const FunctionalShop: React.FC<FunctionalShopProps> = ({ isOpen, onClose }) => {
 
                 <div className="mt-4 pt-4 border-t border-ash-white/20">
                     <div className="text-xs text-ash-white/60 space-y-1">
-                        <p>💰 Earn lats by playing and getting high scores</p>
+                        <p>💰 Earn SLURP by playing and getting high scores</p>
                         <p>🎨 Equipped skins are visible in the game and leaderboard</p>
                         <p>⭐ Higher rarity skins have special visual effects</p>
                     </div>

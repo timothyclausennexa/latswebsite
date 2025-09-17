@@ -50,7 +50,7 @@ const FunctionalAuthModal: React.FC<FunctionalAuthModalProps> = ({ isOpen, onClo
             }
 
             // Create a fake email from username for Supabase auth
-            const fakeEmail = `${username.toLowerCase()}@lats.game`;
+            const fakeEmail = `${username.toLowerCase()}@slurp.game`;
 
             const { data, error } = await supabase.auth.signUp({
                 email: fakeEmail,
@@ -88,7 +88,7 @@ const FunctionalAuthModal: React.FC<FunctionalAuthModalProps> = ({ isOpen, onClo
 
         try {
             // Create fake email from username for sign in
-            const fakeEmail = `${username.toLowerCase()}@lats.game`;
+            const fakeEmail = `${username.toLowerCase()}@slurp.game`;
 
             const { data, error } = await supabase.auth.signInWithPassword({
                 email: fakeEmail,

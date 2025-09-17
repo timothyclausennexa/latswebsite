@@ -9,7 +9,7 @@ interface Mission {
     title: string;
     description: string;
     requirement_value: number;
-    reward_lats: number;
+    reward_slurp: number;
     progress: number;
     is_completed: boolean;
     is_claimed: boolean;
@@ -81,7 +81,7 @@ const DailyMissions: React.FC = () => {
                 title: (item.mission_templates as any).title,
                 description: (item.mission_templates as any).description,
                 requirement_value: (item.mission_templates as any).requirement_value,
-                reward_lats: (item.mission_templates as any).reward_coins,
+                reward_slurp: (item.mission_templates as any).reward_coins,
                 progress: item.progress || 0,
                 is_completed: item.is_completed || false,
                 is_claimed: !!item.claimed_at
@@ -110,7 +110,7 @@ const DailyMissions: React.FC = () => {
             if (error) throw error;
 
             if (data.coins_earned > 0) {
-                setMessage(`🎉 Claimed ${data.coins_earned} lats!`);
+                setMessage(`🎉 Claimed ${data.coins_earned} SLURP!`);
                 await refreshProfile();
                 await fetchMissions();
             } else {
@@ -251,7 +251,7 @@ const DailyMissions: React.FC = () => {
 
                                         <div className="flex items-center justify-between">
                                             <p className="font-mono text-xs text-yellow-400">
-                                                💰 {mission.reward_lats} lats
+                                                💰 {mission.reward_slurp} SLURP
                                             </p>
                                             {mission.is_claimed && (
                                                 <span className="text-xs text-green-400">Claimed!</span>
@@ -270,9 +270,9 @@ const DailyMissions: React.FC = () => {
 
             <div className="mt-4 pt-3 border-t border-ash-white/20">
                 <div className="text-xs text-ash-white/60 space-y-1">
-                    <p>🎯 Complete objectives to earn lats</p>
+                    <p>🎯 Complete objectives to earn SLURP</p>
                     <p>🔄 New missions daily at midnight UTC</p>
-                    <p>💰 Use lats to buy skins in the shop</p>
+                    <p>💰 Use SLURP to buy skins in the shop</p>
                     {missions.filter(m => m.is_completed && !m.is_claimed).length > 0 && (
                         <p className="text-yellow-400 animate-pulse">
                             ⚡ You have {missions.filter(m => m.is_completed && !m.is_claimed).length} unclaimed rewards!

@@ -24,7 +24,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
         
         // Use a dummy email domain since Supabase requires email for auth,
         // but we're using username for the user-facing experience.
-        const email = `${username.toLowerCase()}@lats.game`;
+        const email = `${username.toLowerCase()}@slurp.game`;
 
         if (mode === 'signUp') {
             if (username.length < 3) {

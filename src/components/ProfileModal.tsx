@@ -61,7 +61,7 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
                     <h3 className="font-pixel-heading text-warning-orange mb-3">PLAYER STATS</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
                         <div>
-                            <span className="text-ash-white/70">💰 Lats:</span>
+                            <span className="text-ash-white/70">💰 SLURP:</span>
                             <span className="text-warning-orange font-bold ml-2">{profile?.coins || 0}</span>
                         </div>
                         <div>
@@ -94,9 +94,9 @@ const ProfileModal: React.FC<ProfileModalProps> = ({ isOpen, onClose }) => {
                         />
                     </div>
                     <div>
-                        <label className="block font-pixel-heading text-sm text-ash-white/70">Stream Points (Lats)</label>
+                        <label className="block font-pixel-heading text-sm text-ash-white/70">Stream Points (SLURP)</label>
                         <div className="mt-1 w-full border-2 border-black bg-ash-white/20 p-2 font-mono text-warning-orange font-bold">
-                            💰 {profile?.coins || 0} lats
+                            💰 {profile?.coins || 0} SLURP
                         </div>
                     </div>
                      <div>

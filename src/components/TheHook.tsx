@@ -24,7 +24,7 @@ const TheHook: React.FC = () => {
                         <span className="text-green-400 block xs:inline">10,000X POTENTIAL</span> <span className="block xs:inline">MEETS</span> <span className="text-alarm-red block xs:inline">LIVE CHAOS</span>
                     </h1>
                     <p className="mt-2 sm:mt-3 font-pixel-heading text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-400 animate-pulse px-2 leading-tight">
-                        EVERY $LATS YOU BUY = MORE STREAM TIME = MORE VIRAL MOMENTS
+                        EVERY $SLURP YOU BUY = MORE STREAM TIME = MORE VIRAL MOMENTS
                     </p>
                     <p className="mt-2 font-pixel-heading text-xs xs:text-sm sm:text-base md:text-lg text-ash-white/90 px-2">
                         I'M STUCK STREAMING 24/7 UNTIL THE TIMER HITS ZERO
@@ -66,7 +66,7 @@ const TheHook: React.FC = () => {
                             disabled={!CONFIG.PUMP_FUN_LINK}
                             className="animate-pulse shadow-green-400/40 bg-green-600 hover:bg-green-500 text-black font-bold w-full text-sm sm:text-base min-h-[48px] touch-manipulation"
                         >
-                            🚀 BUY $LATS NOW - GET IN EARLY 🚀
+                            🚀 BUY $SLURP NOW - GET IN EARLY 🚀
                         </Button>
                         <div>
                             <Button
@@ -74,10 +74,10 @@ const TheHook: React.FC = () => {
                                 size="md"
                                 onClick={() => CONFIG.PUMP_FUN_LINK && window.open(CONFIG.PUMP_FUN_LINK, '_blank', 'noopener,noreferrer')}
                                 disabled={!CONFIG.PUMP_FUN_LINK}
-                                tooltip="Get $LATS on Pump.fun"
+                                tooltip="Get $SLURP on Pump.fun"
                                 className="shadow-alarm-red/20 w-full sm:w-auto text-sm sm:text-base min-h-[44px] touch-manipulation"
                             >
-                                📺 BUY $LATS ON PUMP.FUN
+                                📺 BUY $SLURP ON PUMP.FUN
                             </Button>
                         </div>
                     </div>

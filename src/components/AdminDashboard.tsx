@@ -228,7 +228,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose }) => {
                             className="w-full px-4 py-3 bg-prison-black border-2 border-warning-orange/50 rounded text-ash-white focus:border-warning-orange focus:outline-none transition-colors"
                         />
                         <p className="text-xs text-ash-white/60 mt-1">
-                            Link to the pump.fun page for buying $LATS
+                            Link to the pump.fun page for buying $SLURP
                         </p>
                     </div>
 

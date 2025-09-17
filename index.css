@@ -1,0 +1,100 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-prison-black: #0D0D0D;
+  --color-prison-dark: #1A1A1A;
+  --color-alarm-red: #9E3039;
+  --color-warning-orange: #FF8A00;
+  --color-ash-white: #E5E5E5;
+
+  --font-family-pixel-heading: "Press Start 2P", cursive;
+  --font-family-pixel-timer: "VT323", monospace;
+  --font-family-body: "Roboto Mono", monospace;
+
+  --shadow-pixel-sm: 2px 2px 0 #0D0D0D;
+  --shadow-pixel-md: 4px 4px 0 #0D0D0D;
+  --shadow-pixel-lg: 6px 6px 0 #0D0D0D;
+  --shadow-pixel-xl: 8px 8px 0 #0D0D0D;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-prison-black);
+    background-image: radial-gradient(rgba(229,229,229,0.05) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+}
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #FF8A00 #0D0D0D;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0D0D0D;
+  border: 1px solid #FF8A00;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #FF8A00;
+  border-radius: 4px;
+  border: 1px solid #0D0D0D;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #FF8A00;
+  opacity: 0.8;
+}
+
+/* Smooth scrolling for the leaderboard */
+.custom-scrollbar {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add some padding to the scrollable area */
+.custom-scrollbar {
+  padding-right: 4px;
+}
+
+/* Animation keyframes */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}

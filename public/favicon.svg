@@ -1,0 +1,68 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black border outline -->
+  <rect x="4" y="3" width="24" height="2" fill="#000000"/>
+  <rect x="3" y="4" width="2" height="2" fill="#000000"/>
+  <rect x="27" y="4" width="2" height="2" fill="#000000"/>
+  <rect x="2" y="5" width="2" height="2" fill="#000000"/>
+  <rect x="28" y="5" width="2" height="2" fill="#000000"/>
+  <rect x="1" y="6" width="2" height="3" fill="#000000"/>
+  <rect x="29" y="6" width="2" height="3" fill="#000000"/>
+  <rect x="0" y="9" width="2" height="7" fill="#000000"/>
+  <rect x="30" y="9" width="2" height="7" fill="#000000"/>
+  <rect x="1" y="16" width="2" height="3" fill="#000000"/>
+  <rect x="29" y="16" width="2" height="3" fill="#000000"/>
+  <rect x="2" y="19" width="2" height="2" fill="#000000"/>
+  <rect x="28" y="19" width="2" height="2" fill="#000000"/>
+  <rect x="3" y="20" width="2" height="2" fill="#000000"/>
+  <rect x="27" y="20" width="2" height="2" fill="#000000"/>
+  <rect x="4" y="21" width="2" height="2" fill="#000000"/>
+  <rect x="26" y="21" width="2" height="2" fill="#000000"/>
+  <rect x="5" y="22" width="2" height="2" fill="#000000"/>
+  <rect x="25" y="22" width="2" height="2" fill="#000000"/>
+  <rect x="6" y="23" width="3" height="2" fill="#000000"/>
+  <rect x="23" y="23" width="3" height="2" fill="#000000"/>
+  <rect x="9" y="24" width="14" height="2" fill="#000000"/>
+  <rect x="10" y="25" width="12" height="2" fill="#000000"/>
+  <rect x="11" y="26" width="10" height="2" fill="#000000"/>
+  <rect x="12" y="27" width="8" height="2" fill="#000000"/>
+
+  <!-- Gray brain matter -->
+  <rect x="5" y="5" width="22" height="2" fill="#9CA3AF"/>
+  <rect x="4" y="7" width="24" height="2" fill="#9CA3AF"/>
+  <rect x="3" y="9" width="26" height="2" fill="#9CA3AF"/>
+  <rect x="3" y="11" width="26" height="2" fill="#9CA3AF"/>
+  <rect x="3" y="13" width="26" height="2" fill="#9CA3AF"/>
+  <rect x="3" y="15" width="26" height="1" fill="#9CA3AF"/>
+  <rect x="4" y="16" width="24" height="2" fill="#9CA3AF"/>
+  <rect x="4" y="18" width="24" height="1" fill="#9CA3AF"/>
+  <rect x="5" y="19" width="22" height="1" fill="#9CA3AF"/>
+  <rect x="6" y="20" width="20" height="1" fill="#9CA3AF"/>
+  <rect x="7" y="21" width="18" height="1" fill="#9CA3AF"/>
+  <rect x="9" y="22" width="14" height="1" fill="#9CA3AF"/>
+  <rect x="11" y="23" width="10" height="1" fill="#9CA3AF"/>
+
+  <!-- Pink brain top (knowledge/thoughts) -->
+  <rect x="7" y="7" width="18" height="8" fill="#FF1493"/>
+
+  <!-- Pink dots/synapses -->
+  <rect x="8" y="8" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="11" y="9" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="14" y="8" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="17" y="10" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="20" y="9" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="23" y="8" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="10" y="11" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="13" y="12" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="16" y="11" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="19" y="12" width="1" height="1" fill="#FFB6C1"/>
+  <rect x="22" y="11" width="1" height="1" fill="#FFB6C1"/>
+
+  <!-- Dark pink wrinkles/folds -->
+  <rect x="12" y="10" width="8" height="1" fill="#C71585"/>
+  <rect x="9" y="13" width="14" height="1" fill="#C71585"/>
+
+  <!-- White highlights on gray matter -->
+  <rect x="12" y="17" width="2" height="1" fill="#FFFFFF"/>
+  <rect x="18" y="17" width="2" height="1" fill="#FFFFFF"/>
+  <rect x="15" y="19" width="2" height="1" fill="#FFFFFF"/>
+</svg>

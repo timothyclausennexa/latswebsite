@@ -1,0 +1,17 @@
+IMPORTANT: To add your brain logo favicon:
+
+1. Take the brain logo image you showed me
+2. Save it as ONE of these names in the 'public' folder:
+   - favicon.png (recommended)
+   - favicon.ico (if you convert it to ICO format)
+
+The file should be saved at:
+C:\Users\timot\Downloads\latswebsite\public\favicon.png
+
+OR you can use an online converter:
+1. Go to https://favicon.io/favicon-converter/
+2. Upload your brain logo image
+3. Download the generated files
+4. Put favicon.ico in the public folder
+
+After adding the file, refresh your browser with Ctrl+F5

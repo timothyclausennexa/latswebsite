@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npm run dev:*)",
+      "Read(//c/Users/timot/OneDrive/Pictures/Screenshots 1/**)",
+      "Bash(npx supabase:*)",
+      "Bash(node:*)",
+      "WebSearch",
+      "Bash(npx tsc:*)",
+      "Bash(npm run build:*)",
+      "Bash(sed:*)",
+      "Bash(cat:*)",
+      "Read(//c//**)",
+      "Bash(grep:*)",
+      "Bash(awk:*)",
+      "Bash(npm i:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(npx prettier:*)",
+      "Bash(npx vite build:*)",
+      "Bash(find:*)",
+      "Bash(for file in src/components/*.tsx)",
+      "Bash(do echo \"=== Checking $file ===\")",
+      "Bash(done)",
+      "mcp__ide__getDiagnostics",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

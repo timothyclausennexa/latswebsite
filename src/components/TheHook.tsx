@@ -1,7 +1,7 @@
 import React from 'react';
 import StreamHighlight from './StreamHighlight';
 import LiveEventFeed from './LiveEventFeed';
-import SentenceCalculator from './SentenceCalculator';
+import LiveChat from './LiveChat';
 import { Button } from './ui/Button';
 import { useConfig } from '../hooks/useConfig';
 
@@ -90,7 +90,7 @@ const TheHook: React.FC = () => {
                     </div>
                     <div className="space-y-4 sm:space-y-6">
                         <LiveEventFeed />
-                        <SentenceCalculator />
+                        <LiveChat />
                     </div>
                 </div>
             </div>

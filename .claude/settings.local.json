@@ -24,7 +24,17 @@
       "Bash(done)",
       "mcp__ide__getDiagnostics",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)",
+      "Bash(gh auth:*)",
+      "Bash(winget install:*)",
+      "Bash(gh:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(start test_iphone_responsive.html)"
     ],
     "deny": [],
     "ask": []

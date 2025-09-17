@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import CellBreakGameFixed from './CellBreakGameFixed';
+import MobileCellBreakGame from './MobileCellBreakGame';
 import RealLeaderboard, { LeaderboardRef } from './RealLeaderboard';
 import DailyMissions from './DailyMissions';
 import FunctionalAuthModal from './FunctionalAuthModal';
@@ -8,37 +9,55 @@ import FunctionalShop from './FunctionalShop';
 const GameSection: React.FC = () => {
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showShop, setShowShop] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const leaderboardRef = useRef<LeaderboardRef>(null);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768); // sm breakpoint
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const handleGameEnd = () => {
         console.log('🎮 GameSection: handleGameEnd called, refreshing leaderboard...');
         leaderboardRef.current?.refreshLeaderboard();
     };
     return (
-        <section id="cell-break" className="relative border-y-4 border-prison-black bg-prison-dark py-16 sm:py-24">
+        <section id="cell-break" className="relative border-y-4 border-prison-black bg-prison-dark py-12 sm:py-16 lg:py-24">
             <div className="absolute inset-0 bg-[url('/img/grid-bg.png')] bg-repeat opacity-10" />
-            <div className="container relative mx-auto px-4">
+            <div className="container relative mx-auto px-4 sm:px-6">
                 <div className="text-center">
-                     <h2 className="font-pixel-heading text-2xl uppercase text-ash-white sm:text-3xl lg:text-4xl">
+                     <h2 className="font-pixel-heading text-xl uppercase text-ash-white sm:text-2xl lg:text-3xl xl:text-4xl leading-tight">
                         CELL BREAK: THE GAME
                     </h2>
-                    <p className="mx-auto mt-2 max-w-2xl font-body text-ash-white/70">
+                    <p className="mx-auto mt-2 max-w-2xl font-body text-sm text-ash-white/70 sm:text-base lg:text-lg leading-relaxed">
                         He's not the only one trapped. Play our mini-game to climb the leaderboard, complete missions, and earn Escape Points (EP) for cosmetic upgrades.
                     </p>
                 </div>
 
-
                 {/* Game takes full width at the top */}
-                <div className="mt-12">
-                    <CellBreakGameFixed
-                        onAuthClick={() => setShowAuthModal(true)}
-                        onOpenShop={() => setShowShop(true)}
-                        onGameEnd={handleGameEnd}
-                    />
+                <div className="mt-8 sm:mt-12">
+                    {isMobile ? (
+                        <MobileCellBreakGame
+                            onAuthClick={() => setShowAuthModal(true)}
+                            onOpenShop={() => setShowShop(true)}
+                            onGameEnd={handleGameEnd}
+                        />
+                    ) : (
+                        <CellBreakGameFixed
+                            onAuthClick={() => setShowAuthModal(true)}
+                            onOpenShop={() => setShowShop(true)}
+                            onGameEnd={handleGameEnd}
+                        />
+                    )}
                 </div>
 
                 {/* Leaderboard and Missions below in a grid */}
-                <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <div className="mt-8 sm:mt-12 grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2">
                     <RealLeaderboard ref={leaderboardRef} />
                     <DailyMissions />
                 </div>

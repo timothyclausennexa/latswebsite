@@ -54,25 +54,25 @@ const HighStakes: React.FC = () => {
     }, [goalIndex]);
 
     return (
-        <section id="high-stakes" className="py-16 sm:py-24">
-            <div className="container mx-auto px-4">
-                <div className="mx-auto max-w-3xl border-2 border-green-400/50 bg-gradient-to-br from-green-900/20 to-yellow-900/20 p-6 text-center shadow-pixel-lg shadow-green-400/30 sm:p-8 animate-pulse-slow">
-                    <h2 className="font-pixel-heading text-2xl uppercase text-green-400 sm:text-3xl lg:text-4xl animate-pulse">
+        <section id="high-stakes" className="py-8 sm:py-12 md:py-16 lg:py-24">
+            <div className="container mx-auto px-3 sm:px-4">
+                <div className="mx-auto max-w-3xl border-2 border-green-400/50 bg-gradient-to-br from-green-900/20 to-yellow-900/20 p-4 sm:p-6 md:p-8 text-center shadow-pixel-lg shadow-green-400/30 animate-pulse-slow">
+                    <h2 className="font-pixel-heading text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase text-green-400 animate-pulse leading-tight">
                         💰 YOUR LAMBO CALCULATOR 💰
                     </h2>
-                    <p className="mt-2 font-body text-yellow-400 text-lg font-bold">See what happens when you get in EARLY on the next <span className="text-green-400 animate-pulse">10,000X MOONSHOT!</span></p>
+                    <p className="mt-2 font-body text-yellow-400 text-sm xs:text-base sm:text-lg font-bold px-2">See what happens when you get in EARLY on the next <span className="text-green-400 animate-pulse">10,000X MOONSHOT!</span></p>
 
-                    <div className="mt-8 space-y-6">
-                        <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-2">
-                            <div className="font-pixel-heading text-lg text-ash-white/80 md:text-right">INITIAL STAKE:</div>
-                            <div className="font-pixel-timer text-4xl text-ash-white md:text-left">
+                    <div className="mt-4 sm:mt-6 md:mt-8 space-y-4 sm:space-y-6">
+                        <div className="grid grid-cols-1 items-center gap-2 sm:gap-4 md:grid-cols-2">
+                            <div className="font-pixel-heading text-sm sm:text-base md:text-lg text-ash-white/80 md:text-right">INITIAL STAKE:</div>
+                            <div className="font-pixel-timer text-2xl sm:text-3xl md:text-4xl text-ash-white md:text-left">
                                 $1,000
                             </div>
                         </div>
-                        
-                         <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-2">
-                            <div className="font-pixel-heading text-lg text-ash-white/80 md:text-right">ASSUMED ENTRY:</div>
-                            <div className="font-pixel-timer text-4xl text-ash-white md:text-left">
+
+                         <div className="grid grid-cols-1 items-center gap-2 sm:gap-4 md:grid-cols-2">
+                            <div className="font-pixel-heading text-sm sm:text-base md:text-lg text-ash-white/80 md:text-right">ASSUMED ENTRY:</div>
+                            <div className="font-pixel-timer text-2xl sm:text-3xl md:text-4xl text-ash-white md:text-left">
                                 &lt; $1M MCAP
                             </div>
                         </div>
@@ -80,42 +80,42 @@ const HighStakes: React.FC = () => {
                         <div className="my-4 border-t-2 border-dashed border-ash-white/20"></div>
                         
                         {/* --- Interactive Goal Carousel --- */}
-                        <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-2">
-                            <div className="font-pixel-heading text-lg text-warning-orange md:text-right">PROJECT GOAL:</div>
-                            <div className="flex items-center justify-center gap-2 md:justify-start">
+                        <div className="grid grid-cols-1 items-center gap-2 sm:gap-4 md:grid-cols-2">
+                            <div className="font-pixel-heading text-sm sm:text-base md:text-lg text-warning-orange md:text-right">PROJECT GOAL:</div>
+                            <div className="flex items-center justify-center gap-1 sm:gap-2 md:justify-start">
                                 <button
                                     onClick={handlePrevGoal}
                                     aria-label="Previous goal"
-                                    className="px-2 py-1 font-pixel-heading text-2xl text-warning-orange/50 transition-colors hover:text-warning-orange"
+                                    className="px-2 py-1 font-pixel-heading text-xl sm:text-2xl text-warning-orange/50 transition-colors hover:text-warning-orange touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center"
                                 >
                                     &lt;
                                 </button>
-                                <div className="font-pixel-timer w-48 text-4xl text-warning-orange">
+                                <div className="font-pixel-timer w-32 sm:w-40 md:w-48 text-2xl sm:text-3xl md:text-4xl text-warning-orange text-center">
                                     {GOALS[goalIndex].marketCap}
                                 </div>
                                 <button
                                     onClick={handleNextGoal}
                                     aria-label="Next goal"
-                                    className="px-2 py-1 font-pixel-heading text-2xl text-warning-orange/50 transition-colors hover:text-warning-orange"
+                                    className="px-2 py-1 font-pixel-heading text-xl sm:text-2xl text-warning-orange/50 transition-colors hover:text-warning-orange touch-manipulation min-h-[44px] min-w-[44px] flex items-center justify-center"
                                 >
                                     &gt;
                                 </button>
                             </div>
                         </div>
                         
-                        <div className="mt-6 rounded bg-alarm-red/10 p-4">
-                             <p className="font-pixel-heading text-lg text-ash-white">POTENTIAL MULTIPLIER:</p>
-                             <p key={`${goalIndex}-multiplier`} className="font-pixel-timer text-5xl text-warning-orange sm:text-6xl">
+                        <div className="mt-4 sm:mt-6 rounded bg-alarm-red/10 p-3 sm:p-4">
+                             <p className="font-pixel-heading text-sm sm:text-base md:text-lg text-ash-white">POTENTIAL MULTIPLIER:</p>
+                             <p key={`${goalIndex}-multiplier`} className="font-pixel-timer text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-warning-orange">
                                 {calculation.multiplier}
                             </p>
-                             <p className="mt-4 font-pixel-heading text-lg text-ash-white">TURNS $1K INTO:</p>
-                             <p key={`${goalIndex}-return`} className="font-pixel-timer animate-pulse text-5xl text-alarm-red sm:text-6xl">
+                             <p className="mt-3 sm:mt-4 font-pixel-heading text-sm sm:text-base md:text-lg text-ash-white">TURNS $1K INTO:</p>
+                             <p key={`${goalIndex}-return`} className="font-pixel-timer animate-pulse text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-alarm-red">
                                 {calculation.returnValue}
                             </p>
                         </div>
                     </div>
 
-                    <p className="mt-8 font-body text-sm text-ash-white/60">
+                    <p className="mt-6 sm:mt-8 font-body text-xs sm:text-sm text-ash-white/60 px-2">
                         Cycle through the goals to see the potential. Low market cap entries on pump.fun can lead to legendary returns, but the risk is total. The bold may be rewarded. NFA.
                     </p>
                 </div>

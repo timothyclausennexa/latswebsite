@@ -27,8 +27,15 @@ const EntryModal: React.FC<EntryModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
-            <div className="bg-black border-4 border-alarm-red p-6 sm:p-8 rounded-lg max-w-lg w-full">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4" onClick={onClose}>
+            <div className="bg-black border-4 border-alarm-red p-6 sm:p-8 rounded-lg max-w-lg w-full relative" onClick={(e) => e.stopPropagation()}>
+                <button
+                    onClick={onClose}
+                    className="absolute top-2 right-2 text-ash-white/70 hover:text-ash-white p-2"
+                    aria-label="Close modal"
+                >
+                    <Icon type="x" className="h-6 w-6" />
+                </button>
                 <h2 className="text-2xl font-pixel-heading text-alarm-red mb-6 text-center">{title}</h2>
             {isLive ? (
                 // Post-launch content

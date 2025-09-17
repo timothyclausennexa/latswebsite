@@ -41,9 +41,14 @@ const App: React.FC = () => {
     useEffect(() => {
         if (sessionStorage.getItem('siteEntered')) {
             setIsEntryModalOpen(false);
+        } else if (isTouch) {
+            // Auto-close entry modal on mobile after 2 seconds
+            setTimeout(() => {
+                setIsEntryModalOpen(false);
+                sessionStorage.setItem('siteEntered', 'true');
+            }, 2000);
         }
-
-    }, []);
+    }, [isTouch]);
 
     const handleCloseEntryModal = () => {
         sessionStorage.setItem('siteEntered', 'true');

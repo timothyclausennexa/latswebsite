@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobile Test - LATS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0D0D0D;
+            color: #E5E5E5;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .test-section {
+            background: #1A1A1A;
+            border: 2px solid #FF8A00;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1, h2 {
+            color: #FF8A00;
+            margin-bottom: 15px;
+        }
+
+        .big-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: #FF8A00;
+            color: #0D0D0D;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .button {
+            background: #FF8A00;
+            color: #0D0D0D;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .button:active {
+            background: #E67A00;
+        }
+
+        .info {
+            background: #9E3039;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .scroll-test {
+            height: 200px;
+            overflow-y: auto;
+            background: #333;
+            padding: 10px;
+            border: 1px solid #FF8A00;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>📱 MOBILE TEST PAGE</h1>
+        <div class="big-text">CAN YOU SEE THIS?</div>
+        <p>If you can see this text clearly, the basic mobile display is working.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Device Info</h2>
+        <div id="device-info">
+            <p><strong>Screen:</strong> <span id="screen-size"></span></p>
+            <p><strong>Viewport:</strong> <span id="viewport-size"></span></p>
+            <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+            <p><strong>Touch Support:</strong> <span id="touch-support"></span></p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Touch Test</h2>
+        <button class="button" onclick="alert('Touch/Click Working!')">TAP THIS BUTTON</button>
+        <div class="info" id="touch-status">Tap the button above to test touch response</div>
+    </div>
+
+    <div class="test-section">
+        <h2>📜 Scroll Test</h2>
+        <p>Try scrolling in the box below:</p>
+        <div class="scroll-test">
+            <p>Line 1 - This is a scrollable area</p>
+            <p>Line 2 - Keep scrolling down</p>
+            <p>Line 3 - More content here</p>
+            <p>Line 4 - Testing scroll behavior</p>
+            <p>Line 5 - Almost there</p>
+            <p>Line 6 - More scrolling content</p>
+            <p>Line 7 - Keep going</p>
+            <p>Line 8 - Scroll test continues</p>
+            <p>Line 9 - Nearly at the end</p>
+            <p>Line 10 - Final line of scroll test</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🌈 Visual Test</h2>
+        <div style="background: red; color: white; padding: 10px; margin: 5px 0;">RED BOX</div>
+        <div style="background: green; color: white; padding: 10px; margin: 5px 0;">GREEN BOX</div>
+        <div style="background: blue; color: white; padding: 10px; margin: 5px 0;">BLUE BOX</div>
+        <div style="background: #FF8A00; color: black; padding: 10px; margin: 5px 0;">ORANGE BOX (LATS COLOR)</div>
+    </div>
+
+    <script>
+        // Update device info
+        document.getElementById('screen-size').textContent = `${screen.width}x${screen.height}`;
+        document.getElementById('viewport-size').textContent = `${window.innerWidth}x${window.innerHeight}`;
+        document.getElementById('user-agent').textContent = navigator.userAgent.substring(0, 50) + '...';
+        document.getElementById('touch-support').textContent = 'ontouchstart' in window ? 'YES' : 'NO';
+
+        // Log info to console
+        console.log('Mobile Test Page Loaded');
+        console.log('Screen:', screen.width + 'x' + screen.height);
+        console.log('Viewport:', window.innerWidth + 'x' + window.innerHeight);
+        console.log('Touch Support:', 'ontouchstart' in window);
+    </script>
+</body>
+</html>

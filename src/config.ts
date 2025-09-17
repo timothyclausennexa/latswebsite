@@ -8,11 +8,11 @@ export const CONFIG = {
   
   // Your token's contract address. Leave as null if not set yet.
   // Example: '7ggrZ1Jq4oEBNk2w6h4oE3a1bV2yA5c8dEfGhJkLmnpQ'
-  TOKEN_CONTRACT_ADDRESS: null as string | null,
+  TOKEN_CONTRACT_ADDRESS: '33r9Bg2Qcxz5ugqhVWV1xAFsvEeZ19LhCQq34b4opump' as string | null,
 
   // A flag to indicate if the token is live and the CA is locked.
   // Set to `true` after launch. This enables features like the "See Holders" button.
-  TOKEN_LOCKED: false,
+  TOKEN_LOCKED: true,
 
 
   // --- LINKS ---
@@ -20,7 +20,7 @@ export const CONFIG = {
 
   // This is the link to your pump.fun page for buying the token.
   // Set to your URL at launch.
-  PUMP_FUN_LINK: null as string | null, // Example: "https://pump.fun/your-coin"
+  PUMP_FUN_LINK: 'https://pump.fun/coin/33r9Bg2Qcxz5ugqhVWV1xAFsvEeZ19LhCQq34b4opump' as string | null, // Example: "https://pump.fun/your-coin"
 
   // This is the link to your live stream (Twitch, Kick, etc.).
   // Set to your URL at launch.
@@ -28,5 +28,5 @@ export const CONFIG = {
 
   // Your project's social media links.
   TELEGRAM_LINK: "https://t.me/freelats",
-  X_LINK: "https://x.com/freelats",
+  X_LINK: "https://x.com/slurpcoin",
 };

@@ -73,12 +73,12 @@ const TheHook: React.FC = () => {
                             <Button
                                 variant="secondary"
                                 size="md"
-                                onClick={() => CONFIG.LIVE_STREAM_LINK && window.open(CONFIG.LIVE_STREAM_LINK, '_blank', 'noopener,noreferrer')}
-                                disabled={!CONFIG.LIVE_STREAM_LINK}
-                                tooltip="Stream is not live yet"
+                                onClick={() => CONFIG.PUMP_FUN_LINK && window.open(CONFIG.PUMP_FUN_LINK, '_blank', 'noopener,noreferrer')}
+                                disabled={!CONFIG.PUMP_FUN_LINK}
+                                tooltip="Get $LATS on Pump.fun"
                                 className="shadow-alarm-red/20 w-full sm:w-auto text-sm sm:text-base min-h-[44px] touch-manipulation"
                             >
-                                📺 WATCH THE MADNESS LIVE
+                                📺 BUY $LATS ON PUMP.FUN
                             </Button>
                         </div>
                     </div>

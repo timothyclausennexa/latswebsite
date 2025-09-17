@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Real-Time Update Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0ff;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+            border-bottom: 2px solid #0ff;
+            padding-bottom: 20px;
+        }
+        .test-section {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #0ff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .config-display {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #0ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .config-item {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        .config-item:last-child {
+            border-bottom: none;
+        }
+        .key {
+            color: #ff0;
+            font-weight: bold;
+        }
+        .value {
+            color: #0f0;
+            word-break: break-all;
+        }
+        .null-value {
+            color: #888;
+            font-style: italic;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .status.connected {
+            background: rgba(0, 255, 0, 0.2);
+            border: 1px solid #0f0;
+            color: #0f0;
+        }
+        .status.disconnected {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid #f00;
+            color: #f00;
+        }
+        .status.updating {
+            background: rgba(255, 255, 0, 0.2);
+            border: 1px solid #ff0;
+            color: #ff0;
+        }
+        .instructions {
+            background: rgba(255, 255, 0, 0.1);
+            border: 2px solid #ff0;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .instructions h2 {
+            color: #ff0;
+            margin-top: 0;
+        }
+        .instructions ol {
+            color: #fff;
+            line-height: 1.8;
+        }
+        .timestamp {
+            color: #888;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .update-log {
+            max-height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: 2px solid #0ff;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Admin Real-Time Configuration Test</h1>
+
+        <div class="instructions">
+            <h2>📋 Testing Instructions:</h2>
+            <ol>
+                <li>Open this page in one browser tab</li>
+                <li>Open your site in another tab and log in as admin</li>
+                <li>Go to the Admin Dashboard in the site</li>
+                <li>Change any of these values:
+                    <ul>
+                        <li>Token Contract Address (CA)</li>
+                        <li>Pump.fun Link</li>
+                        <li>Live Stream Link</li>
+                    </ul>
+                </li>
+                <li>Watch this page - values should update in REAL-TIME without refresh!</li>
+                <li>The stream section should show "BUY $LATS LIVE" button when both stream and pump links are set</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h2>🔄 Real-Time Configuration Monitor</h2>
+            <div id="connection-status" class="status disconnected">
+                Connecting to Supabase...
+            </div>
+            <div class="config-display" id="config-display">
+                <div class="config-item">
+                    <span class="key">Loading configuration...</span>
+                </div>
+            </div>
+            <div id="last-update"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>📝 Update Log</h2>
+            <div class="update-log" id="update-log">
+                <div class="log-entry">Waiting for updates...</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎥 Live Site Preview</h2>
+            <p>The stream section below should update when you change settings:</p>
+            <iframe src="/" title="Live Site"></iframe>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import Supabase
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+        // Initialize Supabase (these are public keys from your site)
+        const supabaseUrl = 'https://hgztldsgtvcmtpnsgady.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhnenRsZHNndHZjbXRwbnNnYWR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5Nzc2NjgsImV4cCI6MjA1MjU1MzY2OH0.SQDmQbs32IEP0uqyASjREB9x_Ky7TKN3nMKDXRYCtE0';
+
+        const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+        // DOM elements
+        const statusEl = document.getElementById('connection-status');
+        const configEl = document.getElementById('config-display');
+        const lastUpdateEl = document.getElementById('last-update');
+        const logEl = document.getElementById('update-log');
+
+        // Current config
+        let currentConfig = {
+            token_contract_address: null,
+            pump_fun_link: null,
+            live_stream_link: null
+        };
+
+        // Add log entry
+        function addLogEntry(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.innerHTML = `<span class="timestamp">[${timestamp}]</span> ${message}`;
+            logEl.insertBefore(entry, logEl.firstChild);
+
+            // Keep only last 20 entries
+            while (logEl.children.length > 20) {
+                logEl.removeChild(logEl.lastChild);
+            }
+        }
+
+        // Display config
+        function displayConfig(config) {
+            const items = Object.entries(config).map(([key, value]) => {
+                const displayValue = value
+                    ? `<span class="value">${value}</span>`
+                    : '<span class="null-value">null</span>';
+                return `
+                    <div class="config-item">
+                        <span class="key">${key}:</span> ${displayValue}
+                    </div>
+                `;
+            }).join('');
+
+            configEl.innerHTML = items;
+            lastUpdateEl.innerHTML = `<small>Last updated: ${new Date().toLocaleString()}</small>`;
+        }
+
+        // Load initial config
+        async function loadConfig() {
+            try {
+                statusEl.className = 'status updating';
+                statusEl.textContent = 'Loading configuration...';
+
+                const { data, error } = await supabase
+                    .from('site_config')
+                    .select('key, value');
+
+                if (error) throw error;
+
+                // Reset config
+                currentConfig = {
+                    token_contract_address: null,
+                    pump_fun_link: null,
+                    live_stream_link: null
+                };
+
+                // Update with fetched data
+                data.forEach(item => {
+                    if (item.key in currentConfig) {
+                        currentConfig[item.key] = item.value;
+                    }
+                });
+
+                displayConfig(currentConfig);
+                statusEl.className = 'status connected';
+                statusEl.textContent = '✅ Connected - Monitoring real-time updates';
+                addLogEntry('Initial configuration loaded');
+            } catch (error) {
+                console.error('Error loading config:', error);
+                statusEl.className = 'status disconnected';
+                statusEl.textContent = '❌ Error loading configuration';
+                addLogEntry(`Error: ${error.message}`);
+            }
+        }
+
+        // Setup real-time subscription
+        function setupRealtimeSubscription() {
+            const channel = supabase
+                .channel('config_changes')
+                .on(
+                    'postgres_changes',
+                    {
+                        event: '*',
+                        schema: 'public',
+                        table: 'site_config'
+                    },
+                    async (payload) => {
+                        console.log('Change received:', payload);
+
+                        statusEl.className = 'status updating';
+                        statusEl.textContent = '🔄 Updating...';
+
+                        const { eventType, new: newRecord, old: oldRecord } = payload;
+
+                        if (eventType === 'UPDATE' || eventType === 'INSERT') {
+                            if (newRecord.key in currentConfig) {
+                                const oldValue = currentConfig[newRecord.key];
+                                currentConfig[newRecord.key] = newRecord.value;
+
+                                addLogEntry(`<strong>${newRecord.key}</strong> changed from "${oldValue || 'null'}" to "${newRecord.value || 'null'}"`);
+                            }
+                        } else if (eventType === 'DELETE') {
+                            if (oldRecord.key in currentConfig) {
+                                currentConfig[oldRecord.key] = null;
+                                addLogEntry(`<strong>${oldRecord.key}</strong> was deleted`);
+                            }
+                        }
+
+                        displayConfig(currentConfig);
+
+                        setTimeout(() => {
+                            statusEl.className = 'status connected';
+                            statusEl.textContent = '✅ Connected - Monitoring real-time updates';
+                        }, 500);
+
+                        // Reload iframe to show changes
+                        const iframe = document.querySelector('iframe');
+                        iframe.src = iframe.src;
+                    }
+                )
+                .subscribe((status) => {
+                    if (status === 'SUBSCRIBED') {
+                        statusEl.className = 'status connected';
+                        statusEl.textContent = '✅ Connected - Monitoring real-time updates';
+                        addLogEntry('Real-time subscription established');
+                    }
+                });
+
+            return channel;
+        }
+
+        // Initialize
+        loadConfig();
+        const subscription = setupRealtimeSubscription();
+
+        // Listen for manual update events
+        window.addEventListener('configUpdated', () => {
+            addLogEntry('Manual update event received');
+            loadConfig();
+        });
+    </script>
+</body>
+</html>

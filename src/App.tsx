@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Header from './components/Header';
-import Ticker from './components/Ticker';
-import TheHook from './components/TheHook';
+import StunningHeader from './components/StunningHeader';
+import StunningHero from './components/StunningHero';
 import CoreLoop from './components/CoreLoop';
 import HowItWorks from './components/HowItWorks';
 import Leaderboard from './components/Leaderboard';
 import HighStakes from './components/HighStakes';
-import Roadmap from './components/Roadmap';
+import StunningRoadmap from './components/StunningRoadmap';
 import Tokenomics from './components/Tokenomics';
 import Manifesto from './components/Manifesto';
 import GameSection from './components/GameSection';
@@ -103,22 +102,22 @@ const App: React.FC = () => {
                 <EnhancedAdminDashboard isOpen={isAdminDashboardOpen} onClose={() => setIsAdminDashboardOpen(false)} />
 
                 <div className={`${isEntryModalOpen ? 'blur-sm' : ''} ${isTouch ? 'touch-scroll ios-scroll' : ''}`}>
-                    <Header
+                    <StunningHeader
                         onAuthClick={() => setIsAuthModalOpen(true)}
                         onShopClick={() => setIsShopModalOpen(true)}
                         onProfileClick={() => setIsProfileModalOpen(true)}
                         onAdminClick={() => setIsAdminDashboardOpen(true)}
                     />
-                    <Ticker />
+                    <div className="header-spacer"></div>
                     <main>
-                        <TheHook />
+                        <StunningHero />
                         <CoreLoop />
                         <HowItWorks />
                         <Leaderboard />
                         <GameSection />
                         <MusicSection />
                         <HighStakes />
-                        <Roadmap />
+                        <StunningRoadmap />
                         <Manifesto />
                         <Tokenomics />
                         <TechDetails />

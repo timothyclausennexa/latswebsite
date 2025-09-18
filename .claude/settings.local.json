@@ -35,7 +35,8 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "Bash(start test_iphone_responsive.html)",
-      "Read(//c/Users/timot/Downloads/**)"
+      "Read(//c/Users/timot/Downloads/**)",
+      "Bash(git ls-tree:*)"
     ],
     "deny": [],
     "ask": []

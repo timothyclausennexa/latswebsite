@@ -6,6 +6,7 @@ import { Icon } from './ui/Icon';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../lib/supabaseClient';
 import { useTouchButton, useTouch } from '../hooks/useTouch';
+import MayoTimer from './MayoTimer';
 
 // Touch-optimized hamburger button component
 const HamburgerButton: React.FC<{
@@ -193,7 +194,12 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                     <div className="container mx-auto flex items-center justify-between gap-2 px-4 py-3 sm:gap-4">
                         {/* Logo */}
                         <div className="font-pixel-heading text-lg text-alarm-red sm:text-xl md:text-2xl">
-                            SLURP
+                            MAYO MEN
+                        </div>
+
+                        {/* Mayo Timer - Centered for mobile, next to logo for desktop */}
+                        <div className="absolute left-1/2 transform -translate-x-1/2 md:relative md:left-auto md:transform-none">
+                            <MayoTimer className="scale-75 sm:scale-90 md:scale-100" />
                         </div>
 
                         {/* Desktop Nav Links (center) */}
@@ -309,7 +315,7 @@ const Header: React.FC<HeaderProps> = ({ onAuthClick, onShopClick, onProfileClic
                                 tooltip="Link will be updated live on stream"
                                 className="shadow-warning-orange/30"
                             >
-                                <span className="hidden sm:inline">BUY $SLURP</span>
+                                <span className="hidden sm:inline">BUY $MAYOMEN</span>
                                 <span className="sm:hidden">BUY</span>
                             </Button>
                         </div>

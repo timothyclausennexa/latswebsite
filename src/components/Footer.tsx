@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="flex flex-col items-center justify-between gap-4 sm:gap-6 sm:flex-row">
                      <div className="font-pixel-heading text-lg text-alarm-red sm:text-xl">
-                        SLURP
+                        MAYO MEN
                     </div>
                     <div className="flex items-center gap-4 sm:gap-6">
                         <a
@@ -23,10 +23,10 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className="mt-4 sm:mt-6 text-center font-body text-xs text-ash-white/50 sm:text-sm leading-relaxed">
-                    <p>&copy; {new Date().getFullYear()} SLURP. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} MAYO MEN. All rights reserved.</p>
                     <p className="mt-2 uppercase leading-relaxed">
-                        THIS IS A SOCIAL EXPERIMENT. NOT FINANCIAL ADVICE.<br className="sm:hidden" />
-                        <span className="hidden sm:inline"> </span>THE TIMER IS REAL.
+                        THIS IS A MAYO EXPERIMENT. NOT FINANCIAL ADVICE.<br className="sm:hidden" />
+                        <span className="hidden sm:inline"> </span>THE MAYO IS REAL.
                     </p>
                     <p className="mt-1 uppercase">NO COOKIES, NO TRACKING.</p>
                 </div>

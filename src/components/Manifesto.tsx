@@ -6,23 +6,23 @@ const Manifesto: React.FC = () => {
             <div className="container mx-auto px-4 sm:px-6">
                 <div className="mx-auto max-w-3xl text-center">
                     <h2 className="font-pixel-heading text-xl uppercase text-yellow-400 sm:text-2xl lg:text-3xl xl:text-4xl leading-tight">
-                        WHY $SLURP WILL MAKE HISTORY
+                        WHY MAYO MEN WILL CONQUER THE WORLD
                     </h2>
                     <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4 text-left font-body text-ash-white/80">
                         <p className="text-sm sm:text-base leading-relaxed">
-                            Every memecoin promises the moon. Dog coins, cat coins, AI coins - they're all the same pump and dump. No real innovation. No viral mechanism. No human story that captures the world's attention.
+                            Every memecoin is the same boring promise. But Mayo Men? I'm literally trapped doing mayo challenges until the timer runs out. Starting at 100 hours of pure mayo chaos!
                         </p>
                         <p className="text-sm sm:text-base leading-relaxed">
-                            <span className="font-pixel-heading text-green-400 text-base sm:text-lg">$SLURP IS DIFFERENT.</span> It's the first memecoin with REAL STAKES. A human being streaming 24/7, controlled by the market. Every buy extends the stream, creating more viral content, driving more buyers. It's a self-fulfilling prophecy of profit.
+                            <span className="font-pixel-heading text-green-400 text-base sm:text-lg">MAYO MEN IS REVOLUTIONARY.</span> Every BUY adds 2 hours to my mayo torture. Every SELL removes 0.5 hours. At every milestone, I get covered in MORE mayo - 1 pound at $10k, 20 pounds at $100k, and it gets crazier from there!
                         </p>
                         <p className="text-sm sm:text-base leading-relaxed">
-                            Your buy isn't just an investment; it's CONTENT CREATION. 30 more minutes of stream = more clips = more tweets = more FOMO = higher price. You're not just buying a token, you're buying into the most viral marketing machine ever created.
+                            Your trades control my mayo fate! From $150k we start IRL streaming with my friend from Iowa. At $300k we hit Miami for beach mayo madness. At $1B? We launch our OWN Mayo Men brand and take over the condiment industry!
                         </p>
                         <p className="text-sm sm:text-base leading-relaxed">
-                            This isn't another rug pull waiting to happen. The stream is REAL. The timer is LIVE. The gains are INEVITABLE. Early buyers control the narrative AND the profits. Late arrivals will pay YOUR price.
+                            This isn't just a memecoin - it's a mayo revolution! The challenges are REAL. The timer is LIVE. Every hour that passes could be another mayo disaster. YOU control whether I'm drowning in sauce or finally free!
                         </p>
                         <p className="font-pixel-heading text-green-400 text-lg sm:text-xl animate-pulse leading-tight">
-                            BE EARLY. BE SMART. BE RICH. WELCOME TO THE 10,000X.
+                            JOIN THE MAYO REVOLUTION. CONTROL THE SAUCE. BECOME A MAYO MAN.
                         </p>
                     </div>
                 </div>

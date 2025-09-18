@@ -6,11 +6,12 @@ import { Icon } from './ui/Icon';
 
 interface ChatMessage {
     id: number;
-    user_id: string;
+    user_id: string | null;
     username: string;
     message: string;
     created_at: string;
     is_deleted: boolean;
+    is_anonymous?: boolean;
 }
 
 const LiveChat: React.FC = () => {
@@ -20,6 +21,7 @@ const LiveChat: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [sending, setSending] = useState(false);
     const [error, setError] = useState('');
+    const [isAnonymous, setIsAnonymous] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatContainerRef = useRef<HTMLDivElement>(null);
 
@@ -48,16 +50,17 @@ const LiveChat: React.FC = () => {
         }
     };
 
-    // Send message
+    // Send message (anonymous or authenticated)
     const sendMessage = async () => {
-        if (!user || !newMessage.trim() || sending) return;
+        if (!newMessage.trim() || sending) return;
 
         setSending(true);
         setError('');
 
         try {
             const { data, error } = await supabase.rpc('send_chat_message', {
-                p_message: newMessage.trim()
+                p_message: newMessage.trim(),
+                p_is_anonymous: isAnonymous || !user
             });
 
             if (error) throw error;

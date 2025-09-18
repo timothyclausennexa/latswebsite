@@ -22,7 +22,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import AuthModal from './components/AuthModal';
 import FunctionalShop from './components/FunctionalShop';
 import ProfileModal from './components/ProfileModal';
-import AdminDashboard from './components/AdminDashboard';
+import EnhancedAdminDashboard from './components/EnhancedAdminDashboard';
+import MayoEffects from './components/MayoEffects';
 import { DeviceDetector, HapticFeedback } from './utils/touchUtils';
 
 const App: React.FC = () => {
@@ -94,11 +95,12 @@ const App: React.FC = () => {
                 }}
             >
                 <PixelDust ref={pixelDustRef} />
+                <MayoEffects />
                 <EntryModal isOpen={isEntryModalOpen} onClose={handleCloseEntryModal} />
                 <AuthModal isOpen={isAuthModalOpen} onClose={() => setIsAuthModalOpen(false)} />
                 <FunctionalShop isOpen={isShopModalOpen} onClose={() => setIsShopModalOpen(false)} />
                 <ProfileModal isOpen={isProfileModalOpen} onClose={() => setIsProfileModalOpen(false)} />
-                <AdminDashboard isOpen={isAdminDashboardOpen} onClose={() => setIsAdminDashboardOpen(false)} />
+                <EnhancedAdminDashboard isOpen={isAdminDashboardOpen} onClose={() => setIsAdminDashboardOpen(false)} />
 
                 <div className={`${isEntryModalOpen ? 'blur-sm' : ''} ${isTouch ? 'touch-scroll ios-scroll' : ''}`}>
                     <Header

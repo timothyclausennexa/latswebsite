@@ -30,21 +30,21 @@ const HowItWorks: React.FC = () => {
         <section id="how-it-works" className="py-12 sm:py-16 lg:py-24">
             <div className="container mx-auto px-4 sm:px-6">
                 <h2 className="text-center font-pixel-heading text-xl uppercase text-yellow-400 sm:text-2xl lg:text-3xl xl:text-4xl leading-tight">
-                    📈 HOW YOU MAKE MONEY 📈
+                    🥫 HOW THE MAYO TIMER WORKS 🥫
                 </h2>
                 <p className="mx-auto mt-2 max-w-2xl text-center font-body text-ash-white text-sm sm:text-base lg:text-lg leading-relaxed">
-                    Simple: Buy early, watch it go viral, profit massively. Here's the genius mechanism:
+                    Starting at 100 hours! Your trades control my mayo fate. Here's how it works:
                 </p>
                 <div className="mx-auto mt-8 sm:mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <InfoCard
                         icon={<div className="font-pixel-timer text-2xl sm:text-3xl lg:text-4xl text-green-400 mx-auto animate-pulse">BUY 📈</div>}
                         title="SMART MONEY MOVES"
-                        description="Each $SLURP purchase adds 30 mins to stream. More stream time = more viral clips = more buyers = YOUR GAINS MULTIPLY!"
+                        description="Each $MAYOMEN purchase adds 2 HOURS to the mayo timer. More time = more mayo challenges = more viral mayo madness!"
                     />
                     <InfoCard
                         icon={<div className="font-pixel-timer text-2xl sm:text-3xl lg:text-4xl text-red-400 mx-auto">💸 SELL</div>}
                         title="PAPER HANDS LOSE"
-                        description="Selling reduces stream by 1 hour. But why sell when you're holding the next 10,000x? Diamond hands get Lambos!"
+                        description="Selling reduces timer by 0.5 HOURS. Paper hands mean less mayo, but diamond hands see the Mayo Men brand launch at $1B!"
                     />
                     <InfoCard
                         icon={<Icon type="fire" className="mx-auto h-8 w-8 sm:h-10 sm:w-10 text-warning-orange animate-pulse" />}

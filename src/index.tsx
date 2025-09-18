@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// FIX: The error on this line was due to App.tsx not exporting a component. With App.tsx fixed, this import is now valid.
 import App from './App';
+import StreamerOverlay from './components/StreamerOverlay';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -9,8 +9,18 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+
+// Check if we should render the overlay instead
+if (window.location.pathname === '/overlay') {
+  root.render(
+    <React.StrictMode>
+      <StreamerOverlay />
+    </React.StrictMode>
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}

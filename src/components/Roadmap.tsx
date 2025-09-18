@@ -40,10 +40,10 @@ const Roadmap: React.FC = () => {
                     <div className="flex items-start sm:items-center justify-between w-full gap-3">
                         <div className="flex-1 min-w-0">
                             <h2 className="font-pixel-heading text-xl uppercase text-ash-white sm:text-2xl lg:text-3xl xl:text-4xl leading-tight">
-                                Roadmap to Freedom (or Ruin)
+                                Mayo Milestones - From Sauce to Empire
                             </h2>
                             <p className="mt-2 font-body text-sm text-ash-white/70 sm:text-base lg:text-lg leading-relaxed max-w-none sm:max-w-2xl">
-                                The journey begins with "The Grind." Below $1B, it's a series of marketing pushes and personal challenges. Above $1B, the game shifts to global expansion.
+                                Every market cap milestone = more mayo madness! At $1B we launch our own Mayo Men brand and take over the world one jar at a time!
                             </p>
                         </div>
                         {totalMilestones > INITIAL_VISIBLE_COUNT && (

@@ -501,7 +501,7 @@ function CellBreakGameFixed({ onAuthClick, onOpenShop, onGameEnd }: GameProps) {
             localStorage.setItem('cellBreakHighScore', score.toString());
         }
 
-        // Auto-submit score and award SLURP if user is logged in
+        // Auto-submit score and award MAYOMEN if user is logged in
         console.log('🎮 EndGame called:', {
             score: score,
             user: user ? user.email : 'NULL',
@@ -552,7 +552,7 @@ function CellBreakGameFixed({ onAuthClick, onOpenShop, onGameEnd }: GameProps) {
                     gameMode: gameMode || 'standard'
                 });
 
-                // Use the database function that handles both score submission and SLURP awarding
+                // Use the database function that handles both score submission and MAYOMEN awarding
                 console.log('💾 Calling supabase.rpc("submit_game_score") with params:', {
                     new_score: score,
                     new_survival_time: survivalTime
@@ -2468,7 +2468,7 @@ function CellBreakGameFixed({ onAuthClick, onOpenShop, onGameEnd }: GameProps) {
 
             {gameState === 'idle' && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 p-4">
-                    <h2 className="text-4xl font-bold text-warning-orange mb-2">SLURP BREAK</h2>
+                    <h2 className="text-4xl font-bold text-warning-orange mb-2">MAYO MAYHEM</h2>
                     <p className="text-2xl font-bold text-alarm-red mb-2 animate-pulse">SURVIVE 2 MINUTES = LEGENDARY STREAMER!</p>
                     <p className="text-ash-white mb-4">Survive the trading blocks live on stream!</p>
                     <div className="grid grid-cols-2 gap-4 text-xs text-ash-white/70 mb-4 max-w-md">
@@ -2520,7 +2520,7 @@ function CellBreakGameFixed({ onAuthClick, onOpenShop, onGameEnd }: GameProps) {
                             className="border-2 border-warning-orange bg-black/80 p-6 hover:bg-warning-orange/20 transition-all hover:scale-105"
                         >
                             <h3 className="text-xl font-bold text-yellow-400 mb-2">CLASSIC</h3>
-                            <p className="text-sm text-ash-white/80">Earn SLURP by surviving</p>
+                            <p className="text-sm text-ash-white/80">Earn MAYOMEN by surviving</p>
                             <p className="text-xs text-green-400 mt-2">⭐ High scores tracked</p>
                         </button>
 

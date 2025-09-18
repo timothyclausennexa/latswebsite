@@ -16,34 +16,34 @@ const TheHook: React.FC = () => {
                     <div className="mb-3 sm:mb-4">
                         <span className="inline-block px-2 py-1 sm:px-4 sm:py-1 bg-yellow-500/20 border border-yellow-500 rounded-full">
                             <span className="font-pixel-heading text-xs sm:text-sm text-yellow-400 animate-pulse">
-                                🔥 FIRST MEMECOIN WITH REAL HUMAN STAKES 🔥
+                                🥫 FIRST MEMECOIN WITH MAYO CHALLENGES 🥫
                             </span>
                         </span>
                     </div>
                     <h1 className="font-pixel-heading text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl uppercase text-ash-white leading-tight">
-                        <span className="text-green-400 block xs:inline">10,000X POTENTIAL</span> <span className="block xs:inline">MEETS</span> <span className="text-alarm-red block xs:inline">LIVE CHAOS</span>
+                        <span className="text-green-400 block xs:inline">MAYO MEN</span> <span className="block xs:inline">TRAPPED IN</span> <span className="text-alarm-red block xs:inline">MAYO CHALLENGES</span>
                     </h1>
                     <p className="mt-2 sm:mt-3 font-pixel-heading text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-400 animate-pulse px-2 leading-tight">
-                        EVERY $SLURP YOU BUY = MORE STREAM TIME = MORE VIRAL MOMENTS
+                        BUYS ADD 2 HOURS | SELLS TAKE 0.5 HOURS | MAYO MADNESS CONTROLS THE TIMER
                     </p>
                     <p className="mt-2 font-pixel-heading text-xs xs:text-sm sm:text-base md:text-lg text-ash-white/90 px-2">
-                        I'M STUCK STREAMING 24/7 UNTIL THE TIMER HITS ZERO
+                        I'M STUCK DOING MAYO CHALLENGES UNTIL THE TIMER ENDS
                     </p>
                     <p className="mt-1 font-pixel-heading text-xs sm:text-sm md:text-base text-green-400 px-2">
-                        💎 EARLY BUYERS CONTROL MY FATE = MASSIVE GAINS 💎
+                        🥫 EVERY MILESTONE = MORE MAYO DUMPED ON ME 🥫
                     </p>
                 </div>
 
                 <div className="my-6 sm:my-8 text-center">
                     <h2 className="font-pixel-heading text-sm xs:text-base sm:text-lg md:text-xl uppercase text-warning-orange animate-pulse px-2">
-                        ⚠️ STREAM TIMER - MY DIGITAL PRISON ⚠️
+                        ⚠️ MAYO CHALLENGE TIMER - MY SAUCY FATE ⚠️
                     </h2>
                     <div className="font-pixel-timer text-alarm-red text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mt-2">
-                        100,000
+                        100
                         <span className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl block xs:inline"> HOURS</span>
                     </div>
                     <p className="mt-2 font-body text-xs sm:text-sm text-ash-white/70 px-2">
-                        That's 11+ YEARS of non-stop streaming... unless YOU change it
+                        Every hour = potential mayo chaos... YOUR trades control my fate!
                     </p>
 
                     <div className="mt-3 sm:mt-4 flex justify-center gap-2 sm:gap-4 flex-wrap px-2">
@@ -66,7 +66,7 @@ const TheHook: React.FC = () => {
                             disabled={!CONFIG.PUMP_FUN_LINK}
                             className="animate-pulse shadow-green-400/40 bg-green-600 hover:bg-green-500 text-black font-bold w-full text-sm sm:text-base min-h-[48px] touch-manipulation"
                         >
-                            🚀 BUY $SLURP NOW - GET IN EARLY 🚀
+                            🥫 BUY $MAYOMEN NOW - CONTROL THE MAYO 🥫
                         </Button>
                         <div>
                             <Button
@@ -77,7 +77,7 @@ const TheHook: React.FC = () => {
                                 tooltip="Get $SLURP on Pump.fun"
                                 className="shadow-alarm-red/20 w-full sm:w-auto text-sm sm:text-base min-h-[44px] touch-manipulation"
                             >
-                                📺 BUY $SLURP ON PUMP.FUN
+                                🥫 BUY $MAYOMEN ON PUMP.FUN
                             </Button>
                         </div>
                     </div>

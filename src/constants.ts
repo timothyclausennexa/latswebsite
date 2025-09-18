@@ -59,7 +59,7 @@ export const DETAILED_ROADMAP_DATA: Milestone[] = [
     { marketCap: "$75M MCAP", description: "Fund community mayo art contest with $50k in prizes!" },
     { marketCap: "$100M MCAP", description: "Times Square mayo takeover - billboards everywhere!" },
     { marketCap: "$200M MCAP", description: "Mayo magic show - disappearing mayo tricks live!" },
-    { marketCap: "$300M MCAP", description: "Launch official Mayo Men merch line. All mayo themed!",
+    { marketCap: "$300M MCAP", description: "Launch official Mayo Men merch line. All mayo themed!" },
     { marketCap: "$500M MCAP", description: "Major exchange listing with mayo-themed celebration event!" },
     { marketCap: "$750M MCAP", description: "Build entire room of furniture while swimming in mayo pool!" },
 

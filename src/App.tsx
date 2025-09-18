@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import StunningHeader from './components/StunningHeader';
-import StunningHero from './components/StunningHero';
+import PixelatedHeader from './components/PixelatedHeader';
+import PixelatedHero from './components/PixelatedHero';
 import CoreLoop from './components/CoreLoop';
 import HowItWorks from './components/HowItWorks';
 import Leaderboard from './components/Leaderboard';
@@ -102,7 +102,7 @@ const App: React.FC = () => {
                 <EnhancedAdminDashboard isOpen={isAdminDashboardOpen} onClose={() => setIsAdminDashboardOpen(false)} />
 
                 <div className={`${isEntryModalOpen ? 'blur-sm' : ''} ${isTouch ? 'touch-scroll ios-scroll' : ''}`}>
-                    <StunningHeader
+                    <PixelatedHeader
                         onAuthClick={() => setIsAuthModalOpen(true)}
                         onShopClick={() => setIsShopModalOpen(true)}
                         onProfileClick={() => setIsProfileModalOpen(true)}
@@ -110,7 +110,7 @@ const App: React.FC = () => {
                     />
                     <div className="header-spacer"></div>
                     <main>
-                        <StunningHero />
+                        <PixelatedHero />
                         <CoreLoop />
                         <HowItWorks />
                         <Leaderboard />

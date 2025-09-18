@@ -114,27 +114,24 @@ const MayoTimer: React.FC<{ className?: string }> = ({ className = '' }) => {
     return (
         <div className={`mayo-timer ${className}`}>
             <div className="flex items-center justify-center gap-4">
-                <span className="text-2xl animate-mayo-float hidden sm:block">🥫</span>
+                <span className="text-2xl hidden sm:block">🥫</span>
 
                 <div className="text-center">
-                    <div className="font-pixel-heading text-xs sm:text-sm text-yellow-400/80 mb-1">
-                        MAYO COUNTDOWN
+                    <div className="font-pixel-heading text-xs sm:text-sm text-yellow-400 mb-1 uppercase">
+                        [ MAYO TIMER ]
                     </div>
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-orange-400/20 to-yellow-400/20 blur-xl"></div>
-                        <div className={`relative font-pixel-timer text-3xl sm:text-4xl md:text-5xl ${getTimerColor()} drop-shadow-[0_0_10px_rgba(251,191,36,0.5)]`}>
-                            {formatTime(displayTime)}
-                        </div>
+                    <div className={`font-pixel-timer text-3xl sm:text-4xl md:text-5xl ${getTimerColor()} pixel-text`}>
+                        {formatTime(displayTime)}
                     </div>
                     {timerState.is_running && (
-                        <div className="flex items-center justify-center gap-1 mt-1">
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            <span className="text-xs text-green-400 uppercase">Live</span>
+                        <div className="flex items-center justify-center gap-2 mt-1">
+                            <span className="inline-block w-2 h-2 bg-green-400 animate-pixel-blink"></span>
+                            <span className="text-xs text-green-400 uppercase font-pixel-heading">LIVE</span>
                         </div>
                     )}
                 </div>
 
-                <span className="text-2xl animate-mayo-float hidden sm:block" style={{animationDelay: '1.5s'}}>🥫</span>
+                <span className="text-2xl hidden sm:block">🥫</span>
             </div>
         </div>
     );

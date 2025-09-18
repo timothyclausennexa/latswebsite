@@ -51,7 +51,7 @@ const EnhancedAdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose
         };
     }, [isOpen]);
 
-    // Check if user is admin
+    // Check if user is admin and set up real-time subscriptions
     useEffect(() => {
         const checkAdminStatus = async () => {
             if (!user) {
@@ -80,6 +80,47 @@ const EnhancedAdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose
 
         if (isOpen) {
             checkAdminStatus();
+
+            // Set up real-time subscriptions for admin data
+            const configSubscription = supabase
+                .channel('admin_config_updates')
+                .on('postgres_changes', {
+                    event: '*',
+                    schema: 'public',
+                    table: 'site_config'
+                }, () => {
+                    loadConfig(); // Reload config when it changes
+                })
+                .subscribe();
+
+            const timerSubscription = supabase
+                .channel('admin_timer_updates')
+                .on('postgres_changes', {
+                    event: '*',
+                    schema: 'public',
+                    table: 'timer_state'
+                }, () => {
+                    loadTimerState(); // Reload timer state when it changes
+                })
+                .subscribe();
+
+            const tradesSubscription = supabase
+                .channel('admin_trades_updates')
+                .on('postgres_changes', {
+                    event: 'INSERT',
+                    schema: 'public',
+                    table: 'buy_sell_events'
+                }, () => {
+                    loadTradeStats(); // Reload stats when new trades come in
+                    loadRecentTrades();
+                })
+                .subscribe();
+
+            return () => {
+                configSubscription.unsubscribe();
+                timerSubscription.unsubscribe();
+                tradesSubscription.unsubscribe();
+            };
         }
     }, [user, isOpen]);
 
